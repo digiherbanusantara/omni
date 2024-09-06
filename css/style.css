@@ -651,6 +651,12 @@ a:focus {
   margin-top: 45px;
 }
 
+@media (max-width: 768px) {
+  .form_container .row {
+    display: block; /* atau 'flex' dengan 'flex-direction: column;' */
+  }
+}
+
 .contact_section input {
   width: 100%;
   border: none;

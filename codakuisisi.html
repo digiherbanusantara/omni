@@ -103,11 +103,14 @@
             <div class="heading_container">
               <h2>FORM ORDER COD AKUISISI</h2>
             </div>
-            <form method="POST" action="https://script.google.com/macros/s/AKfycbw2kJRTqJcDdPWgbVAVc0qYPMyEQNZRUGeVnPdYD1_-rdn4Gnog9_S_rD14pkdUtu9T/exec">
+            <form method="POST" action="https://script.google.com/macros/s/AKfycbx2rdjeusTDX0eeDKUco_G5brI2CqB3k9Iv5S_D5bgHMxjI6I0JdDq8PM9KkjXpuGsT/exec">
               <div class="row">
                 <div class="col-md-6 mb-3 mb-3">
                   <label for="name" class="form-label">Nama</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Nama">
+                  <select class="form-control form-label" id="name" name="name">
+                    
+                    <!-- Add more options as needed -->
+                  </select>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="body" class="form-label">Saran</label>
@@ -122,31 +125,7 @@
                   <input type="text" class="form-control" id="tim" name="tim" placeholder="tim" />
                 </div>
               </div>
-              <!-- <div>
-                <label for="name" class="form-label">Nama</label>
-                <input type="text" class="form-control" placeholder="Phone number" />
-              </div>
-              <div class="mb-3">
-                <label for="name" class="form-label">Nama</label>
-                <input type="text" class="form-control" class="message-box" placeholder="Message" />
-              </div> -->
-              <!-- Penambahan input teks baru -->
-              <!-- <div class="mb-3">
-                <label for="name" class="form-label">Nama</label>
-                <input type="text" class="form-control" placeholder="Input Tambahan 1" />
-              </div>
-              <div class="mb-3">
-                <label for="name" class="form-label">Nama</label>
-                <input type="text" class="form-control" placeholder="Input Tambahan 2" />
-              </div>
-              <div class="mb-3">
-                <label for="name" class="form-label">Nama</label>
-                <input type="text" class="form-control" placeholder="Input Tambahan 3" />
-              </div>
-              <div class="mb-3">
-                <label for="name" class="form-label">Nama</label>
-                <input type="text" class="form-control" placeholder="Input Tambahan 4" />
-              </div> -->
+              
               <div class="d-flex">
                 <button type="submit">SEND</button>
               </div>
@@ -174,6 +153,22 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
   <!-- End Google Map -->
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('https://script.google.com/macros/s/AKfycbx2rdjeusTDX0eeDKUco_G5brI2CqB3k9Iv5S_D5bgHMxjI6I0JdDq8PM9KkjXpuGsT/exec')
+        .then(response => response.json())
+        .then(data => {
+          var select = document.getElementById('name');
+          data.forEach(function(name) {
+            var option = document.createElement('option');
+            option.value = name;
+            option.textContent = name;
+            select.appendChild(option);
+          });
+        })
+        .catch(error => console.error('Error:', error));
+    });
+    </script>
 </body>
 
 </html>
