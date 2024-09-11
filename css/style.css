@@ -966,6 +966,12 @@ color: black; /* Mengubah warna teks menjadi hitam */
 padding: 10px 5px;
 }
 
+.dropdown button.btn-secondary:hover {
+  background-color: transparent;
+  color: #19607a;
+
+  }
+
 .fa-bars {
 color: black; /* Mengubah warna icon menjadi hitam */
 }

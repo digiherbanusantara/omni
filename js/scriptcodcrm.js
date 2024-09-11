@@ -251,13 +251,13 @@ fetch(form.action, {
           });
 
           // Populate the 'nama_adv' dropdown with data from column C (kabupaten_kota)
-          var kabupatenKotaSelect = document.getElementById('kabupaten_kota');
-          data.kabupaten_kota.forEach(function(kabupatenKota) {
-            var option = document.createElement('option');
-            option.value = kabupatenKota;
-            option.textContent = kabupatenKota;
-            kabupatenKotaSelect.appendChild(option);
-          });
+          // var kabupatenKotaSelect = document.getElementById('kabupaten_kota');
+          // data.kabupaten_kota.forEach(function(kabupatenKota) {
+          //   var option = document.createElement('option');
+          //   option.value = kabupatenKota;
+          //   option.textContent = kabupatenKota;
+          //   kabupatenKotaSelect.appendChild(option);
+          // });
         })
         .catch(error => console.error('Error:', error));
     });
