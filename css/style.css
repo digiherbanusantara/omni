@@ -876,3 +876,117 @@ a:focus {
   color: inherit;
 }
 /*# sourceMappingURL=style.css.map */
+
+
+
+
+/* style untuk codrm.html */
+.form_container input[type="text"], .form_container input[type="email"] {
+  width: 100%; /* Mengatur lebar input menjadi 100% dari container */
+  box-sizing: border-box; /* Memastikan padding dan border termasuk dalam lebar total */
+  margin-bottom: 10px; /* Menambahkan sedikit ruang di bawah setiap input */
+}
+
+.form_container form {
+  margin: 0 auto; /* Memastikan form terpusat */
+}
+
+.form_container {
+  padding: 15px; /* Menambahkan padding pada container untuk estetika */
+}
+
+button {
+  width: 100%; /* Mengatur lebar button menjadi 100% */
+  padding: 10px; /* Menambahkan padding pada button untuk kenyamanan */
+}
+
+
+.wajib_diisi {
+  color: red;
+}
+
+.red-border {
+border: 1px solid rgb(114, 184, 190) !important;
+}
+
+
+
+.form-control {
+padding-right: 30px; /* Menambah padding di sisi kanan agar teks tidak tertutupi oleh ikon */
+}
+
+.heading_container2 {
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+background-color: #ffffff;
+padding: 10px 0;
+position: relative; /* Menambahkan positioning relatif */
+}
+
+.dropdown {
+position: absolute; /* Mengatur dropdown agar posisinya absolut */
+right: 0; /* Menempatkan di ujung kanan */
+/* top: 50%; Menempatkan di tengah secara vertikal */
+transform: translateY(-50%); /* Mengatur posisi tepat di tengah vertikal */
+}
+
+.fa-bars {
+font-size: 1.5em;
+}
+
+
+
+.heading_container h2 {
+margin: 0; /* Menghilangkan margin default */
+flex-shrink: 0; /* Mencegah H2 menyusut */
+}
+
+#inputId {
+width: 150px; /* Atur lebar maksimal input */
+margin-left: auto; /* Ini mendorong input ke kanan */
+padding: 5px 10px;
+border: 1px solid #000000;
+height: 38px; /* Tinggi untuk menyamakan dengan tinggi H2 jika diperlukan */
+}
+
+.hide-2-product {
+display: none;
+}
+
+.hide-3-product {
+display: none;
+}
+
+.dropdown button.btn-secondary {
+background-color: transparent; /* Menghilangkan warna background */
+border: none; /* Menghilangkan border */
+color: black; /* Mengubah warna teks menjadi hitam */
+padding: 10px 5px;
+}
+
+.fa-bars {
+color: black; /* Mengubah warna icon menjadi hitam */
+}
+
+.dropdown-menu a.dropdown-item:hover {
+background-color: #007bff; /* Warna background saat hover */
+color: white; /* Warna teks saat hover */
+}
+
+/* Default style for the dropdown items */
+.dropdown-menu .dropdown-item {
+color: black;
+}
+
+/* Style for "Batalkan" context */
+.dropdown-menu .dropdown-item.cancel {
+color: red;
+}
+
+/* Hover style for "Batalkan" context */
+.dropdown-menu .dropdown-item.cancel:hover {
+background-color: red;
+color: white;
+}
