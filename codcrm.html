@@ -25,6 +25,41 @@
 <!-- Select2 CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 
+<style>
+	/* Atur tinggi dropdown select2 */
+	.select2-container--default .select2-selection--single {
+		height: 50px !important; /* Sesuaikan tinggi sesuai kebutuhan Anda */
+		display: flex;
+		align-items: center;
+	}
+  
+	.select2-container--default .select2-selection--single .select2-selection__rendered {
+		line-height: 50px !important; /* Sesuaikan ini untuk mengatur teks agar vertikal tengah */
+	}
+  
+	.select2-container--default .select2-selection--single .select2-selection__arrow {
+		height: 50px !important; /* Sesuaikan ini untuk mengatur tinggi panah dropdown */
+	}
+
+	  /* Menyesuaikan posisi ikon clear */
+  .select2-selection__clear {
+      position: absolute;
+      right: 10px; 
+      color: red !important; /* Ubah warna menjadi merah */
+      top: 50%;
+      transform: translateX(150%);
+      font-size: 16px; /* Sesuaikan ukuran jika diperlukan */
+       z-index: 10; /*Pastikan di atas elemen lainnya */
+      cursor: pointer; /* Ubah cursor menjadi pointer */
+  }
+
+  /* Pastikan kotak select2 cukup luas untuk ikon clear */
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+      padding-right: 30px; /* Tambahkan ruang untuk ikon clear */
+  }
+  </style>
+  
+
 </head>
 
 
@@ -93,10 +128,10 @@
 						<div class="col-md-6 mb-3">
 							<label for="kecamatan" class="form-label">Kecamatan</label>
 							<input type="text" class="form-control" id="kecamatan" name="kecamatan" placeholder="Kecamatan" oninput="this.value = this.value.toUpperCase();"></div>
-						<div class="col-md-6 mb-3 mb-3">
+						<div class="col-md-6 mb-3">
 							<label for="kabupaten_kota" class="form-label" >Kabupaten / Kota</label>
 							<select class="form-control form-label" name="kabupaten_kota" id="kabupaten_kota" style="width: 100%;">
-								<!-- <option value="" disabled selected hidden></option> -->
+								<option value="" disabled selected hidden></option>
 								<!-- Add more options as needed --></select>
 						</div>
 						<div class="col-md-12 mb-3">
