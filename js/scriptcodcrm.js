@@ -121,11 +121,18 @@ document.addEventListener('DOMContentLoaded', function() {
       window.getSelection().removeAllRanges();
     };
 
-    // Event listener untuk close modal
-    $('#successModal').on('hidden.bs.modal', function () {
-      $('#successModal').remove(); // Menghapus modal dari DOM setelah ditutup
-      resetSubmitButton(); // Mengaktifkan kembali tombol submit setelah modal ditutup
-    });
+    // Event listener untuk close modal dengan ikon "X" dan tombol "Close"
+$('#successModal').on('hidden.bs.modal', function () {
+  submitButton.disabled = false; // Mengaktifkan kembali tombol submit
+  submitButton.textContent = 'Submit'; // Mengubah teks tombol kembali ke 'Submit'
+  isSubmitting = false; // Reset status submit setelah modal ditutup
+  
+  // Reset dropdown "Kabupaten / Kota" menggunakan Select2
+  $('#kabupaten_kota').val(null).trigger('change');
+  
+  $('#successModal').remove(); // Menghapus modal dari DOM setelah ditutup
+});
+
 
     form.reset(); // Reset form jika perlu
   }

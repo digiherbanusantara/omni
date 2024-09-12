@@ -657,6 +657,24 @@ a:focus {
   }
 }
 
+@media (max-width: 768px) {
+  .heading_container h2 {
+      display: inline-block;
+      white-space: nowrap;
+  }
+
+  .heading_container h2::after {
+      content: 'COD CRM';
+      display: block;
+      color: #ffab6a; /* Sesuaikan dengan warna yang diinginkan */
+  }
+
+  .heading_container h2 span {
+      display: none;
+  }
+}
+
+
 .contact_section input {
   width: 100%;
   border: none;
@@ -728,7 +746,7 @@ a:focus {
   background-color: #ffffff;
   color: #000000;
   border-radius: 350px 0 0 0;
-  padding-top: 145px;
+  /* padding-top: 145px; */
 }
 
 /* info section */
@@ -880,6 +898,10 @@ a:focus {
 
 
 
+
+
+
+
 /* style untuk codrm.html */
 .form_container input[type="text"], .form_container input[type="email"] {
   width: 100%; /* Mengatur lebar input menjadi 100% dari container */
@@ -906,7 +928,7 @@ button {
 }
 
 .red-border {
-border: 1px solid rgb(114, 184, 190) !important;
+border: 1px solid rgb(218, 218, 218) !important;
 }
 
 
@@ -920,7 +942,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 width: 100%;
-background-color: #ffffff;
+/* background-color: #ffffff; */
 padding: 10px 0;
 position: relative; /* Menambahkan positioning relatif */
 }
@@ -968,7 +990,7 @@ padding: 10px 5px;
 
 .dropdown button.btn-secondary:hover {
   background-color: transparent;
-  color: #19607a;
+  color: #f8842b;
 
   }
 
@@ -995,4 +1017,122 @@ color: red;
 .dropdown-menu .dropdown-item.cancel:hover {
 background-color: red;
 color: white;
+}
+
+/* Atur tinggi dropdown select2 */
+.select2-container--default .select2-selection--single {
+  height: 50px !important; /* Sesuaikan tinggi sesuai kebutuhan Anda */
+  display: flex;
+  align-items: center;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 50px !important; /* Sesuaikan ini untuk mengatur teks agar vertikal tengah */
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 50px !important; /* Sesuaikan ini untuk mengatur tinggi panah dropdown */
+}
+
+  /* Menyesuaikan posisi ikon clear */
+.select2-selection__clear {
+    position: absolute;
+    right: 10px; 
+    color: red !important; /* Ubah warna menjadi merah */
+    top: 50%;
+    transform: translateX(150%);
+    font-size: 16px; /* Sesuaikan ukuran jika diperlukan */
+     z-index: 10; /*Pastikan di atas elemen lainnya */
+    cursor: pointer; /* Ubah cursor menjadi pointer */
+}
+
+/* Pastikan kotak select2 cukup luas untuk ikon clear */
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    padding-right: 30px; /* Tambahkan ruang untuk ikon clear */
+}
+
+.form_container {
+  position: relative;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  font-size: 14px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+  border-color: #ffab6a;
+  box-shadow: 0 0 8px rgba(255, 171, 106, 0.4);
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.red-border {
+  border-color: #ffab6a;
+}
+
+.form-control.red-border:focus {
+  border-color: #ff8c00;
+  box-shadow: 0 0 8px rgba(255, 140, 0, 0.4);
+}
+
+.form-control[readonly] {
+  background-color: #f7f7f7;
+  cursor: not-allowed;
+}
+
+.btn {
+  /* background: linear-gradient(135deg, #ffab6a, #ff8c00); */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  /* background: linear-gradient(135deg, #ff8c00, #ffab6a); */
+  transform: translateY(-3px);
+}
+
+.dropdown-menu {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item:hover {
+  background-color: #ffab6a;
+  color: white;
+}
+
+.quote_btn {
+  background: linear-gradient(135deg, #ffab6a, #ff8c00);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.quote_btn:hover {
+  background: linear-gradient(135deg, #ff8c00, #ffab6a);
+  transform: translateY(-3px);
+}
+
+.wajib_diisi {
+  color: red;
 }
