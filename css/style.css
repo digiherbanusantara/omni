@@ -11,7 +11,7 @@ body {
 }
 
 .layout_margin {
-  margin: 90px 0;
+  /* margin: 90px 0; */
 }
 
 .layout_padding2 {
@@ -475,7 +475,7 @@ a:focus {
 }
 
 .about_section {
-  background-color: #7335b7;
+  background-color: #ffffff;
   color: #ffffff;
   border-radius: 250px 0 250px 0;
 }
@@ -653,26 +653,34 @@ a:focus {
 
 @media (max-width: 768px) {
   .form_container .row {
-    display: block; /* atau 'flex' dengan 'flex-direction: column;' */
+      display: block; /* atau 'flex' dengan 'flex-direction: column;' */
   }
-}
-
-@media (max-width: 768px) {
+  
   .heading_container h2 {
       display: inline-block;
       white-space: nowrap;
   }
 
-  .heading_container h2::after {
+  /* Aturan khusus untuk COD CRM */
+  .heading_container.cod h2::after {
       content: 'COD CRM';
       display: block;
       color: #ffab6a; /* Sesuaikan dengan warna yang diinginkan */
   }
 
+  /* Aturan khusus untuk TF CRM */
+  .heading_container.tf h2::after {
+      content: 'TF CRM';
+      display: block;
+      color: #ffab6a; /* Sesuaikan dengan warna yang diinginkan */
+  }
+
+  /* Sembunyikan span asli */
   .heading_container h2 span {
       display: none;
   }
 }
+
 
 
 .contact_section input {

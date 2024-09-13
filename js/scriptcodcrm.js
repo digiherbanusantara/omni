@@ -159,7 +159,7 @@ $('#successModal').on('hidden.bs.modal', function () {
   }
 
   // Populate dropdowns (asynchronous request)
-  fetch('https://script.google.com/macros/s/AKfycbyVj9Ieor594Pkwjw-f3Rfw36AR5-aTCPHg2BfvWkidhUsR73L-QOzlCHLuAHDrl7v8/exec')
+  fetch('https://script.google.com/macros/s/AKfycbwyWFEmOlfcyJOuUdHz7RSvorNjKgFUgQkxqCGvwAgFhmmHbr3ApMuZ0bjEhlTCMe0o/exec')
     .then(response => response.json())
     .then(data => {
       populateDropdown('product', data.product);
@@ -226,7 +226,8 @@ function formatRupiah(input) {
 }
 
 // Fungsi untuk memperbarui total
-function updateTotal() {
+//untuk formcod
+function updateTotalCod() {
   const harga1 = getNumericValue('harga_product');
   const harga2 = getNumericValue('harga_product2');
   const harga3 = getNumericValue('harga_product3');
@@ -235,6 +236,18 @@ function updateTotal() {
   const diskon = getNumericValue('diskon_ongkir');
   const total = harga1 + harga2 + harga3 + ongkir + penanganan - diskon;
   document.getElementById('total_cod').value = formatRupiahAmount(total);
+}
+
+//untuk formtf
+function updateTotalTF() {
+  const harga1 = getNumericValue('harga_product');
+  const harga2 = getNumericValue('harga_product2');
+  const harga3 = getNumericValue('harga_product3');
+  const ongkir = getNumericValue('biaya_ongkir');
+  // const penanganan = getNumericValue('biaya_penanganan');
+  const diskon = getNumericValue('diskon_ongkir');
+  const total = harga1 + harga2 + harga3 + ongkir - diskon;
+  document.getElementById('total_tf').value = formatRupiahAmount(total);
 }
 
 // Fungsi untuk mendapatkan nilai numerik dari elemen

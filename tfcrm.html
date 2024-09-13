@@ -54,6 +54,10 @@
 				<li class="nav-item active">
 					<a class="nav-link" href="tfcrm.html" style="margin-right: 10px;">Form TF CRM</a>
 				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="about.html" style="margin-right: 10px;">Module</a>
+				  </li>
 			</ul>
 			<div class="quote_btn-container">
 				<a href="" class="quote_btn">Logout</a>
@@ -69,7 +73,7 @@
 	<div class="row">
 		<div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
 			<div class="form_container">
-				<div class="heading_container">
+				<div class="heading_container tf">
 					<h2>FORM ORDER <span style="color: #ffab6a;">TF CRM</span></h2>
 				</div>
 				<div class="heading_container2 mb-5">
@@ -83,7 +87,7 @@
 						</div>
 					</div>
 				</div>
-				<form method="POST" action="https://script.google.com/macros/s/AKfycbyVj9Ieor594Pkwjw-f3Rfw36AR5-aTCPHg2BfvWkidhUsR73L-QOzlCHLuAHDrl7v8/exec">
+				<form method="POST" action="https://script.google.com/macros/s/AKfycbwyWFEmOlfcyJOuUdHz7RSvorNjKgFUgQkxqCGvwAgFhmmHbr3ApMuZ0bjEhlTCMe0o/exec">
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="nama_customer" class="form-label">Nama Customer<span class="wajib_diisi">*</span></label>
@@ -118,7 +122,7 @@
 							<input type="number" class="form-control red-border" id="qty" name="qty" required placeholder="Qty" oninput="this.value = this.value.toUpperCase();"></div>
 						<div class="col-md-4 mb-3">
 							<label for="harga_product" class="form-label">Harga Product<span class="wajib_diisi">*</span></label>
-							<input type="text" class="form-control red-border" id="harga_product" name="harga_product" placeholder="Rp 0" oninput="formatRupiah(this); updateTotal()"></div>
+							<input type="text" class="form-control red-border" id="harga_product" name="harga_product" placeholder="Rp 0" oninput="formatRupiah(this); updateTotalTF()"></div>
 						<div class="col-md-4 mb-3 hide-2-product">
               <!-- END PRODUCT 1 -->
 
@@ -134,7 +138,7 @@
 							<input type="number" class="form-control red-border" id="qty2" name="qty2" placeholder="Qty" oninput="this.value = this.value.toUpperCase();"></div>
 						<div class="col-md-4 mb-3 hide-2-product">
 							<label for="harga_product2" class="form-label">Harga Product(2)<span class="wajib_diisi">*</span></label>
-							<input type="text" class="form-control red-border" id="harga_product2" name="harga_product2" placeholder="Rp 0" oninput="formatRupiah(this); updateTotal()"></div>
+							<input type="text" class="form-control red-border" id="harga_product2" name="harga_product2" placeholder="Rp 0" oninput="formatRupiah(this); updateTotalTF()"></div>
 						<div class="col-md-4 mb-3 hide-3-product">
               <!-- END PRODUCT 2 -->
 
@@ -150,7 +154,7 @@
 							<input type="number" class="form-control red-border" id="qty3" name="qty3" placeholder="Qty" oninput="this.value = this.value.toUpperCase();"></div>
 						<div class="col-md-4 mb-3 hide-3-product">
 							<label for="harga_product3" class="form-label">Harga Product(3)<span class="wajib_diisi">*</span></label>
-							<input type="text" class="form-control red-border" id="harga_product3" name="harga_product3" placeholder="Rp 0" oninput="formatRupiah(this); updateTotal()"></div>
+							<input type="text" class="form-control red-border" id="harga_product3" name="harga_product3" placeholder="Rp 0" oninput="formatRupiah(this); updateTotalTF()"></div>
 						<div class="col-md-3 mb-3">
               <!-- END PRODUCT 3 -->
               
@@ -164,43 +168,43 @@
 						</div>
 						<div class="col-md-3 mb-3">
 							<label for="biaya_ongkir" class="form-label">Ongkos Kirim</label>
-							<input type="text" class="form-control red-border" id="biaya_ongkir" name="biaya_ongkir" placeholder="Rp 0" oninput="formatRupiah(this); updateTotal()"></div>
+							<input type="text" class="form-control red-border" id="biaya_ongkir" name="biaya_ongkir" placeholder="Rp 0" oninput="formatRupiah(this); updateTotalTF()"></div>
 						<div class="col-md-3 mb-3">
 							<label for="biaya_penanganan" class="form-label">Biaya Admin</label>
-							<input type="text" class="form-control red-border" id="biaya_penanganan" name="biaya_penanganan" placeholder="Rp 0" oninput="formatRupiah(this); updateTotal()"></div>
+							<input type="text" class="form-control red-border" id="biaya_penanganan" name="biaya_penanganan" placeholder="Rp 0" value="Rp 0" oninput="formatRupiah(this); updateTotalTF()" readonly></div>
 						<div class="col-md-3 mb-3">
 							<label for="diskon_ongkir" class="form-label">Discount Ongkir</label>
-							<input type="text" class="form-control red-border" id="diskon_ongkir" name="diskon_ongkir" placeholder="Rp 0" oninput="formatRupiah(this); updateTotal()"></div>
+							<input type="text" class="form-control red-border" id="diskon_ongkir" name="diskon_ongkir" placeholder="Rp 0" oninput="formatRupiah(this); updateTotalTF()"></div>
 						<div class="col-md-12 mb-3">
-							<label for="total_cod" class="form-label">Total TF<span class="wajib_diisi">*</span></label>
-							<input type="text" class="form-control" id="total_cod" name="total_cod" placeholder="Rp 0" style="font-weight: bold;" onfocus="showWarning(this)" readonly>
+							<label for="total_tf" class="form-label">Total TF<span class="wajib_diisi">*</span></label>
+							<input type="text" class="form-control" id="total_tf" name="total_tf" placeholder="Rp 0" style="font-weight: bold;" onfocus="showWarning(this)" readonly>
 							<small class="form-text text-muted">*Note: ( [Harga Product] + [Biaya Ongkir] + [Biaya Penanganan] - [Discount Ongkir])</small>
 						</div>
 						<div class="col-md-12 mb-3">
 							<hr style="border: 1px solid #ccc; margin: 20px 0;"></div>
 						<div class="col-md-6 mb-3">
 							<label for="metode_pembayaran" class="form-label">Metode Pembayaran<span class="wajib_diisi">*</span></label>
-							<select class="form-control form-label" id="metode_pembayaran" name="metode_pembayaran" style="height: 50px;" required>
-								<option value="" disabled selected hidden></option>
-								<option value="TF">TF</option>
+							<input class="form-control form-label" id="metode_pembayaran" name="metode_pembayaran" value="TF" style="height: 50px;" required readonly>
+								<!-- <option value="" disabled selected hidden></option> -->
+								<!-- <option value="TF">TF</option> -->
 								<!-- Add more options as needed --></select>
 						</div>
 
-            <div class="col-md-6  mb-3">
-              <label for="formFileSm" class="form-label">Upload Bukti TF</label>
-              <input class="form-control" id="formFileSm" type="file" required>
-            </div>
+						<div class="col-md-6  mb-3">
+							<label for="bukti_transfer" class="form-label">Upload Bukti TF</label>
+							<input class="form-control" id="bukti_transfer" name="bukti_transfer" type="file" required>
+						  </div>
 
-            <div class="col-md-6 mb-3">
-							<label for="metode_pembayaran" class="form-label">Bank<span class="wajib_diisi">*</span></label>
-							<select class="form-control form-label" id="metode_pembayaran" name="metode_pembayaran" style="height: 50px;" required>
+						  <div class="col-md-6 mb-3">
+							<label for="nama_bank" class="form-label">Bank<span class="wajib_diisi">*</span></label>
+							<select class="form-control form-label" id="nama_bank" name="nama_bank" style="height: 50px;" required>
 								<option value="" disabled selected hidden></option>
 								<option value="MANDIRI">MANDIRI</option>
-                <option value="BRI">BRI</option>
-                <option value="BCA">BCA</option>
-								<!-- Add more options as needed --></select>
+								<option value="BRI">BRI</option>
+								<option value="BCA">BCA</option>
+								<!-- Add more options as needed -->
+							</select>
 						</div>
-
 						<div class="col-md-6 mb-3">
 							<label for="ekspedisi" class="form-label">Ekspedisi<span class="wajib_diisi">*</span></label>
 							<select class="form-control form-label" id="ekspedisi" name="ekspedisi" style="height: 50px;" required>
@@ -217,17 +221,17 @@
 								<!-- Add more options as needed --></select>
 						</div>
 						<div class="col-md-6 mb-3 mb-3">
-							<label for="nama_cs" class="form-label">Nama CS<span class="wajib_diisi">*</span></label>
+							<label for="nama_cs" class="form-label">Nama CS CRM<span class="wajib_diisi">*</span></label>
 							<select class="form-control form-label" id="nama_cs" name="nama_cs" style="height: 50px;" required>
 								<option value="" disabled selected hidden></option>
 								<!-- Add more options as needed --></select>
 						</div>
 						<div class="col-md-6 mb-3 mb-3">
 							<label for="nama_adv" class="form-label">Nama ADV<span class="wajib_diisi">*</span></label>
-							<select class="form-control form-label" id="nama_adv_crm" name="nama_adv" style="height: 50px;" required>
-                <option value="" disabled selected hidden></option>
-								<option value="CRM">CRM</option>
-								<!-- Add more options as needed --></select>
+							<input class="form-control form-label" value="CRM" id="nama_adv" name="nama_adv" style="height: 50px;" required readonly>
+								<!-- <option value="" disabled selected hidden></option> -->
+								<!-- <option value="CRM">CRM</option> -->
+								<!-- Add more options as needed --></input>
 						</div>
 						<div class="col-md-6 mb-3">
 							<label for="status_customer" class="form-label">Status Customer<span class="wajib_diisi">*</span></label>
@@ -236,14 +240,14 @@
 								<option value="NEW CUSTOMER">NEW CUSTOMER</option>
 								<option value="NCS">NCS</option>
 								<option value="RO1">RO1</option>
-                <option value="RO2">RO2</option>
-                <option value="RO3">RO3</option>
-                <option value="RO4">RO4</option>
-                <option value="RO5">RO5</option>
-                <option value="RO6">RO6</option>
-                <option value="RO7">RO7</option>
-                <option value="RO NEXT">RO NEXT</option>
-                <option value="NCS RO">NCS RO</option>
+								<option value="RO2">RO2</option>
+								<option value="RO3">RO3</option>
+								<option value="RO4">RO4</option>
+								<option value="RO5">RO5</option>
+								<option value="RO6">RO6</option>
+								<option value="RO7">RO7</option>
+								<option value="RO NEXT">RO NEXT</option>
+								<option value="NCS RO">NCS RO</option>
 								<!-- Add more options as needed --></select>
 						</div>
 						<div class="col-md-6 mb-3">
@@ -255,17 +259,15 @@
 								<option value="TIKOK ADS">TIKOK ADS</option>
 								<!-- Add more options as needed --></select>
 						</div>
-            
 						<div class="col-md-6 mb-3">
 							<label for="note" class="form-label">Note Untuk Courir</label>
 							<input type="textarea" class="form-control" id="note" name="note" placeholder="Note" oninput="this.value = this.value.toUpperCase();"></div>
 					</div>
-
-
 					<div class="d-flex">
+						<input type="hidden" name="formType" value="tfcrm">
 						<button type="submit">SUBMIT FORM</button>
 					</div>
-				</form>
+				</form
 			</div>
 		</div>
 	</div>
