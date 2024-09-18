@@ -159,7 +159,7 @@ $('#successModal').on('hidden.bs.modal', function () {
   }
 
   // Populate dropdowns (asynchronous request)
-  fetch('https://script.google.com/macros/s/AKfycbxI5_E7nYSMxHsRQit8yRAe5fFMPTymrCOTXwlqvJMj7li8uVsO65jSR7pp7YBCTifu/exec')
+  fetch('https://script.google.com/macros/s/AKfycbwPPwTqtKEnSwi3faLkNJ4PfcVIiVKoCODbXPBJHmJc1-ybq6ZpXl1qMQNRNmqALWNC/exec')
     .then(response => response.json())
     .then(data => {
       populateDropdown('product', data.product);
