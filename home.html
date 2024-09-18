@@ -13,46 +13,6 @@
   <meta name="author" content="" />
 
   <title>OMNI CRM</title>
-  <style>
-    /* Preloader CSS */
-    #preloader {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 9999;
-      background-color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #preloader img {
-      width: 100px;
-      height: 100px;
-    }
-
-    /* Sembunyikan konten halaman */
-    #content {
-      display: none;
-    }
-  </style>
-
-  <script>
-    // Redirect otomatis ke login.html jika belum pernah dilakukan dalam sesi ini
-    window.onload = function () {
-      if (!sessionStorage.getItem('loggedIn')) {
-        // Jika pengguna belum login, arahkan ke login.html
-        window.location.href = "login.html";
-      } else {
-        // Jika sudah login, sembunyikan preloader dan tampilkan konten
-        document.getElementById('preloader').style.display = 'none';
-        document.getElementById('content').style.display = 'block';
-      }
-    }
-  </script>
-
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -69,15 +29,6 @@
 
 <body>
 
-  <!-- Preloader yang akan muncul sampai proses pengecekan selesai -->
-  <div id="preloader">
-    <div class="spinner-border" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>    
-  </div>
-
-  <!-- Konten halaman yang disembunyikan sampai preloader hilang -->
-  <div id="content">
 
   <div class="hero_area">
     <!-- header section strats -->
@@ -216,7 +167,7 @@
     <!-- end slider section -->
   </div>
 
- </div>
+
 
   
   <div class="footer_container" style="padding-top: 145px;">

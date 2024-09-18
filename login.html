@@ -19,6 +19,8 @@
   <link href="css/style.css" rel="stylesheet"/>
   <!-- Responsive style -->
   <link href="css/responsive.css" rel="stylesheet"/>
+    <!-- Tambahkan SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 
@@ -32,7 +34,7 @@
     }
     .login_form {
       background: #ffffff;
-      padding: 30px;
+      padding: 50px;
       border-radius: 10px;
       box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
     }
@@ -91,15 +93,30 @@
       var validPassword = "admin";
   
       if (username === validUsername && password === validPassword) {
-        alert("Login successful!");
+        // Menampilkan popup dengan SweetAlert2
+        Swal.fire({
+          title: 'Login Successful!',
+          text: 'You will be redirected to the main page.',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Simpan status login di sessionStorage agar tidak diarahkan lagi
+            sessionStorage.setItem('loggedIn', true);
   
-        // Simpan status login di sessionStorage agar tidak diarahkan lagi
-        sessionStorage.setItem('loggedIn', true);
+            // Arahkan ke halaman utama
+            window.location.href = "index.html";
+          }
+        });
   
-        // Arahkan ke halaman utama
-        window.location.href = "index.html";
       } else {
-        alert("Invalid username or password!");
+        // Menampilkan popup kesalahan login
+        Swal.fire({
+          title: 'Error!',
+          text: 'Invalid username or password!',
+          icon: 'error',
+          confirmButtonText: 'Try Again'
+        });
       }
     }
   </script>
