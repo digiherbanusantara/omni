@@ -13,7 +13,15 @@
   <meta name="author" content="" />
 
   <title>OMNI CRM</title>
-
+  <script>
+    // Redirect otomatis ke login.html jika belum pernah dilakukan dalam sesi ini
+    window.onload = function() {
+      if (!sessionStorage.getItem('loggedIn')) {
+        // Jika pengguna belum login, arahkan ke login.html
+        window.location.href = "login.html";
+      }
+    }
+  </script>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />

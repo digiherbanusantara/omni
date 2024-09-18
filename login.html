@@ -65,46 +65,46 @@
 </head>
 <body>
 
-<div class="login_container">
-  <div class="login_form">
-    <div class="brand_logo">
-      OMNI DHN
+  <div class="login_container">
+    <div class="login_form">
+      <div class="brand_logo">OMNI DHN</div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" name="username" required placeholder="Enter your username">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password" required placeholder="Enter your password">
+        </div>
+        <button type="button" onclick="validateLogin()">Login</button>
+      </form>
     </div>
-    <!-- Mengubah form untuk tidak menggunakan submit, dan hanya menggunakan button dengan onclick -->
-    <form id="loginForm">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" name="username" required placeholder="Enter your username">
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" name="password" required placeholder="Enter your password">
-      </div>
-      <button type="button" onclick="validateLogin()">Login</button> <!-- Tambahkan onclick untuk validasi -->
-    </form>
   </div>
-</div>
-
-<!-- Script untuk validasi login -->
-<script>
-  function validateLogin() {
-    // Ambil nilai dari input form
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
-
-    // Username dan password yang valid
-    var validUsername = "admin";
-    var validPassword = "admin";
-
-    // Validasi login
-    if (username === validUsername && password === validPassword) {
-      alert("Login successful!");
-      window.location.href = "index.html"; // Mengarahkan ke halaman home.html jika berhasil
-    } else {
-      alert("Invalid username or password!"); // Jika gagal
+  
+  <script>
+    function validateLogin() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+  
+      var validUsername = "admin";
+      var validPassword = "admin";
+  
+      if (username === validUsername && password === validPassword) {
+        alert("Login successful!");
+  
+        // Simpan status login di sessionStorage agar tidak diarahkan lagi
+        sessionStorage.setItem('loggedIn', true);
+  
+        // Arahkan ke halaman utama
+        window.location.href = "index.html";
+      } else {
+        alert("Invalid username or password!");
+      }
     }
-  }
-</script>
+  </script>
+  
+  </body>
+  </html>
+  
 
-</body>
-</html>
