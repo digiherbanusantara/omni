@@ -1144,3 +1144,15 @@ color: white;
 .wajib_diisi {
   color: red;
 }
+
+/* Menyembunyikan tombol logout secara default */
+.logout-mobile {
+  display: none;
+}
+
+/* Menampilkan tombol logout hanya ketika lebar layar kurang dari 768px (mobile) */
+@media (max-width: 768px) {
+  .logout-mobile {
+    display: block;
+  }
+}
