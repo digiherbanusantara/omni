@@ -87,7 +87,8 @@
 						</div>
 					</div>
 				</div>
-				<form method="POST" action="https://script.google.com/macros/s/AKfycbwyWFEmOlfcyJOuUdHz7RSvorNjKgFUgQkxqCGvwAgFhmmHbr3ApMuZ0bjEhlTCMe0o/exec">
+				<form method="POST" action="https://script.google.com/macros/s/AKfycbycxAFhHv15t4CW6fw5rZt2lykm6iT-9zyWWlWaoIcUTtvpN5q4Uo9MQqHHQfswBY9S/exec" id="tfcrmForm">
+
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="nama_customer" class="form-label">Nama Customer<span class="wajib_diisi">*</span></label>
@@ -193,7 +194,11 @@
 						<div class="col-md-6  mb-3">
 							<label for="bukti_transfer" class="form-label">Upload Bukti TF</label>
 							<input class="form-control" id="bukti_transfer" name="bukti_transfer" type="file" required>
-						  </div>
+							<input type="hidden" id="bukti_transfer_data" name="bukti_transfer_data">
+							<input type="hidden" id="bukti_transfer_name" name="bukti_transfer_name">
+							<input type="hidden" id="bukti_transfer_mimetype" name="bukti_transfer_mimetype">
+						</div>
+					
 
 						  <div class="col-md-6 mb-3">
 							<label for="nama_bank" class="form-label">Bank<span class="wajib_diisi">*</span></label>
@@ -335,6 +340,18 @@
       });
     });
   </script>
-  
+  <script>
+    $('#bukti_transfer').on("change", function() {
+        var file = this.files[0];
+        var fr = new FileReader();
+        fr.onload = function(e) {
+            document.getElementById("bukti_transfer_data").value = e.target.result.replace(/^.*,/, '');
+            document.getElementById("bukti_transfer_name").value = file.name;
+            document.getElementById("bukti_transfer_mimetype").value = file.type;
+        }
+        fr.readAsDataURL(file);
+    });
+</script>
+
 	</body>
 	</html>
