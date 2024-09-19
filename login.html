@@ -39,9 +39,16 @@
       box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
     }
     .login_form .form-control {
-      height: 50px;
-      border-radius: 5px;
-    }
+  height: 50px;
+  border-radius: 5px;
+  width: 100%; /* Set to 100% by default */
+}
+
+@media (min-width: 768px) {
+  .login_form .form-control {
+    width: 500px; /* Apply the 500px width only on screens larger than 768px (tablet and desktop) */
+  }
+}
     .login_form button {
       background-color: #ffab6a;
       border: none;
