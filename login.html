@@ -20,19 +20,18 @@
   <!-- Responsive style -->
   <link href="css/responsive.css" rel="stylesheet"/>
    <!-- Link ke manifest.json -->
-   <link rel="manifest" href="/omni/manifest.json">
-   <script>
+   <link rel="manifest" href="/manifest.json">
+     <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/omni/service-worker.js')
-      .then(function(registration) {
-        console.log('Service Worker registered with scope:', registration.scope);
-      })
-      .catch(function(error) {
-        console.error('Service Worker registration failed:', error);
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(error) {
+          console.log('ServiceWorker registration failed: ', error);
+        });
       });
     }
   </script>
-  
 
     <!-- Tambahkan SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

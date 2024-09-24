@@ -1,20 +1,20 @@
 {
-  "name": "OMNI DHN App",
-  "short_name": "OMNIDHN",
-  "start_url": "/index.html",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#007bff",
-  "icons": [
-    {
-      "src": "/omni/images/pwa.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/omni/images/pwa.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
-}
+    "name": "OMNI DHN App",
+    "short_name": "OMNIDHN",
+    "start_url": "/omni/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#007bff",
+    "icons": [
+      {
+        "src": "/images/pwa.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/images/pwa.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
