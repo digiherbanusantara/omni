@@ -1,18 +1,16 @@
-let basePath = window.location.hostname === 'localhost' ? '/' : '/omni/';
-
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open('my-cache').then(cache => {
       return cache.addAll([
-        `${basePath}`,
-        `${basePath}index.html`,
-        `${basePath}about.html`,
-        `${basePath}login.html`,
-        `${basePath}css/style.css`,
-        `${basePath}js/main.js`,
-        `${basePath}codcrm.html`,
-        `${basePath}tfcrm.html`,
-        `${basePath}images/pwa.png`
+        '/omni/',
+        '/omni/index.html',
+        '/omni/about.html',
+        '/omni/login.html',
+        '/omni/css/style.css',
+        '/omni/js/main.js',
+        '/omni/codcrm.html',
+        '/omni/tfcrm.html',
+        '/omni/images/pwa.png'
       ]);
     })
   );
