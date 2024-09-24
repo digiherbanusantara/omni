@@ -21,17 +21,7 @@
   <link href="css/responsive.css" rel="stylesheet"/>
    <!-- Link ke manifest.json -->
    <link rel="manifest" href="/manifest.json">
-     <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, function(error) {
-          console.log('ServiceWorker registration failed: ', error);
-        });
-      });
-    }
-  </script>
+
 
     <!-- Tambahkan SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -138,6 +128,44 @@
       }
     }
   </script>
+
+        <!-- Script untuk memperbarui basePath sesuai environment -->
+        <script>
+          let basePath = window.location.hostname === 'localhost' ? '/' : '/omni/';
+          
+          // Update manifest
+          document.querySelector('link[rel="manifest"]').setAttribute('href', `${basePath}manifest.json`);
+  
+          // Update link dan script
+          document.querySelectorAll('link').forEach(link => {
+              if (link.getAttribute('href') && link.getAttribute('href').startsWith('/')) {
+                  link.setAttribute('href', basePath + link.getAttribute('href').substring(1));
+              }
+          });
+  
+          document.querySelectorAll('script').forEach(script => {
+              if (script.getAttribute('src') && script.getAttribute('src').startsWith('/')) {
+                  script.setAttribute('src', basePath + script.getAttribute('src').substring(1));
+              }
+          });
+      </script>
+  
+      <!-- Service Worker Registration -->
+      <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register(`${basePath}service-worker.js`)
+            .then(registration => {
+              console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+              console.log('Service Worker registration failed:', error);
+            });
+        }
+      </script>
+  
+  
+
+
 
 </body>
 </html>
