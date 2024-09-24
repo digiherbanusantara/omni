@@ -11,6 +11,8 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
+  <meta name="theme-color" content="#007bff">
+
 
   <title>OMNI CRM</title>
 
@@ -24,6 +26,9 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+
+  <link rel="manifest" href="/manifest.json">
+
 
 </head>
 
@@ -288,6 +293,18 @@
   <script src="js/bootstrap.js"></script>
   <script src="js/custom.js"></script>
   <script src="js/scriptcodcrm.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(error => {
+          console.log('Service Worker registration failed:', error);
+        });
+    }
+  </script>
+
 
 </body>
 

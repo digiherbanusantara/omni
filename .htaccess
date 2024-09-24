@@ -1,1 +1,32 @@
+# Set the default page to be served
 DirectoryIndex login.html
+
+# Ensure manifest.json and service worker are not cached (recommended during development)
+<FilesMatch "(\.json|\.js)$">
+  FileETag None
+  <IfModule mod_headers.c>
+    Header unset ETag
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+  </IfModule>
+</FilesMatch>
+
+# Allow access to the manifest.json, service-worker.js, and other static resources
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Ensure .json, .js, .css, .png, etc. files are served directly
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Redirect all other requests to index.html
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Enable cross-origin resource sharing for web app resources
+<IfModule mod_headers.c>
+  Header set Access-Control-Allow-Origin "*"
+  Header set Access-Control-Allow-Methods "GET,OPTIONS"
+  Header set Access-Control-Allow-Headers "Content-Type"
+</IfModule>
