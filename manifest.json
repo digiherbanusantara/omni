@@ -1,7 +1,7 @@
 {
     "name": "OMNI DHN App",
     "short_name": "OMNIDHN",
-    "start_url": "/omni/index.html",
+    "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#007bff",
