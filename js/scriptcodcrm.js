@@ -279,3 +279,25 @@ function showWarning(input) {
     }
   }
 }
+
+
+
+
+
+// login dan logout
+
+    // Cek status login
+    if (!sessionStorage.getItem('loggedIn')) {
+      // Jika belum login, arahkan ke halaman login
+      window.location.href = "login.html";
+    }
+  
+  
+    // Fungsi logout
+    function logout() {
+      // Hapus status login dari sessionStorage
+      sessionStorage.removeItem('loggedIn');
+      // Arahkan kembali ke halaman login
+      window.location.href = "login.html";
+    }
+  

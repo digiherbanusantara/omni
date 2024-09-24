@@ -39,19 +39,7 @@
     }
   </style>
 
-  <script>
-    // Redirect otomatis ke login.html jika belum pernah dilakukan dalam sesi ini
-    window.onload = function () {
-      if (!sessionStorage.getItem('loggedIn')) {
-        // Jika pengguna belum login, arahkan ke login.html
-        window.location.href = "login.html";
-      } else {
-        // Jika sudah login, sembunyikan preloader dan tampilkan konten
-        document.getElementById('preloader').style.display = 'none';
-        document.getElementById('content').style.display = 'block';
-      }
-    }
-  </script>
+
 
 
   <!-- bootstrap core css -->
@@ -69,22 +57,17 @@
 
 <body>
 
-  <!-- Preloader yang akan muncul sampai proses pengecekan selesai -->
-  <div id="preloader">
-    <div class="spinner-border" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>    
-  </div>
+
 
   <!-- Konten halaman yang disembunyikan sampai preloader hilang -->
-  <div id="content">
+  <div>
 
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="home.html">
+          <a class="navbar-brand" href="index.html">
             <span>
               OMNI DHN
             </span>
@@ -97,7 +80,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ">
               <li class="nav-item active">
-                <a class="nav-link" href="home.html" style="margin-right: 10px;">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.html" style="margin-right: 10px;">Home <span class="sr-only">(current)</span></a>
               </li>
               
               <li class="nav-item">
@@ -113,13 +96,11 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link logout-mobile" href="login.html" style="margin-right: 10px; color: #ffab6a;">Logout</a>
+                <a class="nav-link logout-mobile" href="#" onclick="logout()" style="margin-right: 10px; color: #ffab6a;">Logout</a>
               </li>
             </ul>
             <div class="quote_btn-container">
-              <a href="login.html" class="quote_btn">
-                Logout
-              </a>
+              <a href="#" class="quote_btn" onclick="logout()">Logout</a>
             </div>
           </div>
         </nav>
@@ -244,7 +225,7 @@
                 Links
               </h4>
               <div class="info_links">
-                <a class="" href="home.html">
+                <a class="" href="index.html">
                   Home
                 </a>
                 <a class="" href="codcrm.html">
@@ -338,6 +319,9 @@
   <!-- bootstrap js -->
   <script src="js/bootstrap.js"></script>
   <script src="js/custom.js"></script>
+  <script src="js/scriptcodcrm.js"></script>
+  
+  
 
 
 </body>

@@ -19,58 +19,71 @@
   <link href="css/style.css" rel="stylesheet"/>
   <!-- Responsive style -->
   <link href="css/responsive.css" rel="stylesheet"/>
+   <!-- Link ke manifest.json -->
+   <link rel="manifest" href="/manifest.json">
+   <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(error) {
+          console.log('ServiceWorker registration failed: ', error);
+        });
+      });
+    }
+  </script>
+
     <!-- Tambahkan SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
-
-  <style>
-    .login_container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #f8f9fa;
-    }
-    .login_form {
-      background: #ffffff;
-      padding: 50px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-    }
-    .login_form .form-control {
-  height: 50px;
-  border-radius: 5px;
-  width: 100%; /* Set to 100% by default */
-}
-
-@media (min-width: 768px) {
-  .login_form .form-control {
-    width: 500px; /* Apply the 500px width only on screens larger than 768px (tablet and desktop) */
+    <style>
+      .login_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f8f9fa;
+      }
+      .login_form {
+        background: #ffffff;
+        padding: 50px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+      }
+      .login_form .form-control {
+    height: 50px;
+    border-radius: 5px;
+    width: 100%; /* Set to 100% by default */
   }
-}
-    .login_form button {
-      background-color: #ffab6a;
-      border: none;
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
-      padding: 10px;
-      width: 100%;
-      border-radius: 5px;
-      margin-top: 20px;
+  
+  @media (min-width: 768px) {
+    .login_form .form-control {
+      width: 500px; /* Apply the 500px width only on screens larger than 768px (tablet and desktop) */
     }
-    .login_form button:hover {
-      background-color: #ff9247;
-    }
-    .brand_logo {
-      font-size: 36px;
-      font-weight: bold;
-      color: #ffab6a;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-  </style>
+  }
+      .login_form button {
+        background-color: #ffab6a;
+        border: none;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+      .login_form button:hover {
+        background-color: #ff9247;
+      }
+      .brand_logo {
+        font-size: 36px;
+        font-weight: bold;
+        color: #ffab6a;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    </style>
+  
 </head>
 <body>
 
@@ -90,15 +103,15 @@
       </form>
     </div>
   </div>
-  
+
   <script>
     function validateLogin() {
       var username = document.getElementById('username').value;
       var password = document.getElementById('password').value;
-  
+
       var validUsername = "admin";
       var validPassword = "admin";
-  
+
       if (username === validUsername && password === validPassword) {
         // Menampilkan popup dengan SweetAlert2
         Swal.fire({
@@ -108,14 +121,12 @@
           confirmButtonText: 'OK'
         }).then((result) => {
           if (result.isConfirmed) {
-            // Simpan status login di sessionStorage agar tidak diarahkan lagi
+            // Simpan status login di sessionStorage
             sessionStorage.setItem('loggedIn', true);
-  
-            // Arahkan ke halaman utama
             window.location.href = "index.html";
           }
         });
-  
+
       } else {
         // Menampilkan popup kesalahan login
         Swal.fire({
@@ -127,8 +138,6 @@
       }
     }
   </script>
-  
-  </body>
-  </html>
-  
 
+</body>
+</html>
