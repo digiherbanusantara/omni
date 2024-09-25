@@ -159,7 +159,7 @@ $('#successModal').on('hidden.bs.modal', function () {
   }
 
   // Populate dropdowns (asynchronous request)
-  fetch('https://script.google.com/macros/s/AKfycbwPPwTqtKEnSwi3faLkNJ4PfcVIiVKoCODbXPBJHmJc1-ybq6ZpXl1qMQNRNmqALWNC/exec')
+  fetch('https://script.google.com/macros/s/AKfycbz2G0q8z2KcdlPisivOr4E92wAEsHpG08ZJjx1mBeLo-TUKUjmXoCWeJ9ehRXvm0LZj/exec')
     .then(response => response.json())
     .then(data => {
       populateDropdown('product', data.product);
@@ -168,6 +168,7 @@ $('#successModal').on('hidden.bs.modal', function () {
       populateDropdown('gift', data.gift);
       populateDropdown('nama_cs', data.nama_cs);
       populateDropdown('nama_adv', data.nama_adv);
+      populateDropdown('kecamatan', data.kecamatan);
       populateDropdown('kabupaten_kota', data.kabupaten_kota);
     })
     .catch(error => console.error('Error:', error));

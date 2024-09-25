@@ -93,7 +93,7 @@
 						</div>
 					</div>
 				</div>
-				<form method="POST" action="https://script.google.com/macros/s/AKfycbwPPwTqtKEnSwi3faLkNJ4PfcVIiVKoCODbXPBJHmJc1-ybq6ZpXl1qMQNRNmqALWNC/exec">
+				<form method="POST" action="https://script.google.com/macros/s/AKfycbz2G0q8z2KcdlPisivOr4E92wAEsHpG08ZJjx1mBeLo-TUKUjmXoCWeJ9ehRXvm0LZj/exec">
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="nama_customer" class="form-label">Nama Customer<span class="wajib_diisi">*</span></label>
@@ -105,8 +105,11 @@
 							<label for="alamat" class="form-label">Alamat Customer</label>
 							<input type="textarea" class="form-control" id="alamat" name="alamat" placeholder="Alamat Customer" oninput="this.value = this.value.toUpperCase();"></div>
 						<div class="col-md-6 mb-3">
-							<label for="kecamatan" class="form-label">Kecamatan</label>
-							<input type="text" class="form-control" id="kecamatan" name="kecamatan" placeholder="Kecamatan" oninput="this.value = this.value.toUpperCase();"></div>
+							<label for="kecamatan" class="form-label" >kecamatan</label>
+							<select class="form-control form-label" name="kecamatan" id="kecamatan" style="width: 100%;">
+								<option value="" disabled selected hidden></option>
+								<!-- Add more options as needed --></select>
+						</div>
 						<div class="col-md-6 mb-3">
 							<label for="kabupaten_kota" class="form-label" >Kabupaten / Kota</label>
 							<select class="form-control form-label" name="kabupaten_kota" id="kabupaten_kota" style="width: 100%;">
@@ -316,6 +319,14 @@
     $(document).ready(function() {
       $('#kabupaten_kota').select2({
         placeholder: "Pilih Kabupaten/Kota",
+        allowClear: true
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      $('#kecamatan').select2({
+        placeholder: "Pilih Kecamatan",
         allowClear: true
       });
     });
