@@ -4,7 +4,6 @@
   "start_url": "/omni/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#007bff",
   "icons": [
     {
       "src": "/omni/images/pwa_omniomni_pwa_2.png",
