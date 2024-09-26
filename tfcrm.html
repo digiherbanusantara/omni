@@ -102,9 +102,12 @@
 						<div class="col-md-12 mb-3">
 							<label for="alamat" class="form-label">Alamat Customer</label>
 							<input type="textarea" class="form-control" id="alamat" name="alamat" placeholder="Alamat Customer" oninput="this.value = this.value.toUpperCase();"></div>
-						<div class="col-md-6 mb-3">
-							<label for="kecamatan" class="form-label">Kecamatan</label>
-							<input type="text" class="form-control" id="kecamatan" name="kecamatan" placeholder="Kecamatan" oninput="this.value = this.value.toUpperCase();"></div>
+							<div class="col-md-6 mb-3">
+								<label for="kecamatan" class="form-label" >kecamatan</label>
+								<select class="form-control form-label" name="kecamatan" id="kecamatan" style="width: 100%;">
+									<option value="" disabled selected hidden></option>
+									<!-- Add more options as needed --></select>
+							</div>
 						<div class="col-md-6 mb-3">
 							<label for="kabupaten_kota" class="form-label" >Kabupaten / Kota</label>
 							<select class="form-control form-label" name="kabupaten_kota" id="kabupaten_kota" style="width: 100%;">
@@ -343,6 +346,14 @@
       });
     });
   </script>
+    <script>
+		$(document).ready(function() {
+		  $('#kecamatan').select2({
+			placeholder: "Pilih Kecamatan",
+			allowClear: true
+		  });
+		});
+	  </script>
 <script>
 	$('#bukti_transfer').on("change", function() {
 		var file = this.files[0];
