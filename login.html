@@ -99,11 +99,18 @@
     function validateLogin() {
       var username = document.getElementById('username').value;
       var password = document.getElementById('password').value;
-
-      var validUsername = "admin";
-      var validPassword = "admin";
-
-      if (username === validUsername && password === validPassword) {
+  
+      // Daftar username dan password yang valid
+      var users = {
+        "admin": "admin",
+        "crm": "crm",
+        "akuisisi": "akuisisi",
+        "adminomni": "adminomni",
+        "superuser": "superuser",
+      };
+  
+      // Memeriksa apakah username dan password cocok
+      if (users[username] && users[username] === password) {
         // Menampilkan popup dengan SweetAlert2
         Swal.fire({
           title: 'Login Successful!',
@@ -117,7 +124,7 @@
             window.location.href = "index.html";
           }
         });
-
+  
       } else {
         // Menampilkan popup kesalahan login
         Swal.fire({
@@ -129,6 +136,7 @@
       }
     }
   </script>
+  
 
         <!-- Script untuk memperbarui basePath sesuai environment
         <script>

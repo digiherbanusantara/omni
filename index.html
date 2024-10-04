@@ -11,36 +11,10 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
+  <!-- <meta name="theme-color" content="#007bff"> -->
+
 
   <title>OMNI CRM</title>
-  <style>
-    /* Preloader CSS */
-    #preloader {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 9999;
-      background-color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #preloader img {
-      width: 100px;
-      height: 100px;
-    }
-
-    /* Sembunyikan konten halaman */
-    #content {
-      display: none;
-    }
-  </style>
-
-
-
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -55,16 +29,11 @@
 
   <link rel="manifest" href="/omni/manifest.json">
 
-
-
+  
 </head>
 
 <body>
 
-
-
-  <!-- Konten halaman yang disembunyikan sampai preloader hilang -->
-  <div>
 
   <div class="hero_area">
     <!-- header section strats -->
@@ -87,12 +56,26 @@
                 <a class="nav-link" href="index.html" style="margin-right: 10px;">Home <span class="sr-only">(current)</span></a>
               </li>
               
-              <li class="nav-item">
-                <a class="nav-link" href="codcrm.html" style="margin-right: 10px;">Form COD CRM</a>
+              <!-- CRM Dropdown -->
+              <li class="nav-item dropdown-crm">
+                <a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
+                  C R M
+                </a>
+                <div class="dropdown-menu dropdown-menu-crm" aria-labelledby="navbarDropdownCRM">
+                  <a class="dropdown-item-crm" href="codcrm.html">Form COD CRM</a>
+                  <a class="dropdown-item-crm" href="tfcrm.html">Form TF CRM</a>
+                </div>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link" href="tfcrm.html" style="margin-right: 10px;">Form TF CRM</a>
+              <!-- AKUISISI Dropdown -->
+              <li class="nav-item dropdown-akuisisi">
+                <a class="nav-link dropdown-toggle-akuisisi" href="#" id="navbarDropdownAKUISISI" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
+                  AKUISISI
+                </a>
+                <div class="dropdown-menu dropdown-menu-akuisisi" aria-labelledby="navbarDropdownAKUISISI">
+                  <a class="dropdown-item-akuisisi" href="#">Form COD AKUISISI</a>
+                  <a class="dropdown-item-akuisisi" href="#">Form TF AKUISISI</a>
+                </div>
               </li>
 
               <li class="nav-item">
@@ -205,7 +188,7 @@
     <!-- end slider section -->
   </div>
 
- </div>
+
 
   
   <div class="footer_container" style="padding-top: 145px;">
@@ -324,44 +307,17 @@
   <script src="js/bootstrap.js"></script>
   <script src="js/custom.js"></script>
   <script src="js/scriptomni.js"></script>
-  
-      <!-- Script untuk memperbarui basePath sesuai environment
-      <script>
-        let basePath = window.location.hostname === 'localhost' ? '/' : '/omni/';
-        
-        // Update manifest
-        document.querySelector('link[rel="manifest"]').setAttribute('href', `${basePath}manifest.json`);
-
-        // Update link dan script
-        document.querySelectorAll('link').forEach(link => {
-            if (link.getAttribute('href') && link.getAttribute('href').startsWith('/')) {
-                link.setAttribute('href', basePath + link.getAttribute('href').substring(1));
-            }
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(error => {
+          console.log('Service Worker registration failed:', error);
         });
-
-        document.querySelectorAll('script').forEach(script => {
-            if (script.getAttribute('src') && script.getAttribute('src').startsWith('/')) {
-                script.setAttribute('src', basePath + script.getAttribute('src').substring(1));
-            }
-        });
-    </script> -->
-
-    <!-- Service Worker Registration -->
-    <script>
-      if ('serviceWorker' in navigator) {
-navigator.serviceWorker.register('/omni/service-worker.js')
-  .then(registration => {
-    console.log('Service Worker registered with scope:', registration.scope);
-  })
-  .catch(error => {
-    console.log('Service Worker registration failed:', error);
-  });
-}
-
-    </script>
-
-
-  
+    }
+  </script>
 
 
 </body>

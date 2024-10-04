@@ -48,12 +48,27 @@
 				<li class="nav-item ">
 					<a class="nav-link" href="index.html" style="margin-right: 10px;">Home <span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="codcrm.html" style="margin-right: 10px;">Form COD CRM</a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="tfcrm.html" style="margin-right: 10px;">Form TF CRM</a>
-				</li>
+				<!-- CRM Dropdown -->
+				<li class="nav-item dropdown-crm active">
+					<a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
+					  C R M
+					</a>
+					<div class="dropdown-menu dropdown-menu-crm" aria-labelledby="navbarDropdownCRM">
+					  <a class="dropdown-item-crm" href="codcrm.html">Form COD CRM</a>
+					  <a class="dropdown-item-crm" href="tfcrm.html">Form TF CRM</a>
+					</div>
+				  </li>
+	
+				  <!-- AKUISISI Dropdown -->
+				  <li class="nav-item dropdown-akuisisi">
+					<a class="nav-link dropdown-toggle-akuisisi" href="#" id="navbarDropdownAKUISISI" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
+					  AKUISISI
+					</a>
+					<div class="dropdown-menu dropdown-menu-akuisisi" aria-labelledby="navbarDropdownAKUISISI">
+					  <a class="dropdown-item-akuisisi" href="#">Form COD AKUISISI</a>
+					  <a class="dropdown-item-akuisisi" href="#">Form TF AKUISISI</a>
+					</div>
+				  </li>
 
 				<li class="nav-item">
 					<a class="nav-link" href="about.html" style="margin-right: 10px;">Module</a>
@@ -105,20 +120,20 @@
 							<div class="col-md-12 mb-3">
 								<label for="provinsi" class="form-label" >Provinsi</label>
 								<select class="form-control form-label" name="provinsi" id="provinsi" style="width: 100%;height: 50px;">
-									<option value="" disabled selected hidden></option>
+									<option value="" disabled selected hidden>Pilih Provinsi</option>
 									<!-- Add more options as needed --></select>
 							</div>
 
 							<div class="col-md-6 mb-3">
 								<label for="kabupaten_kota" class="form-label" >Kabupaten / Kota</label>
 								<select class="form-control form-label" name="kabupaten_kota" id="kabupaten_kota" style="width: 100%;height: 50px;">
-									<option value="" disabled selected hidden></option>
+									<option value="" disabled selected hidden>Pilih Kabupaten/Kota</option>
 									<!-- Add more options as needed --></select>
 							</div>
 						<div class="col-md-6 mb-3">
 							<label for="kecamatan" class="form-label" >Kecamatan</label>
 							<select class="form-control form-label" name="kecamatan" id="kecamatan" style="width: 100%;height: 50px;">
-								<option value="" disabled selected hidden></option>
+								<option value="" disabled selected hidden>Pilih Kecamatan</option>
 								<!-- Add more options as needed --></select>
 						</div>
 						<div class="col-md-12 mb-3">
@@ -128,7 +143,7 @@
 						<div class="col-md-4 mb-3">
 							<label for="product" class="form-label">Product<span class="wajib_diisi">*</span></label>
 							<select class="form-control form-label red-border" id="product" name="product" required style="height: 50px;">
-								<option value="" disabled selected hidden></option>
+								<option value="" disabled selected hidden>Pilih Product</option>
 								<!-- Add more options as needed --></select>
 						</div>
 						<div class="col-md-4 mb-3">
@@ -144,7 +159,7 @@
               <!-- PRODUCT 2 -->
 							<label for="product2" class="form-label">Product (2)<span class="wajib_diisi">*</span></label>
 							<select class="form-control form-label red-border" id="product2" name="product2" style="height: 50px;">
-								<option value="" disabled selected hidden></option>
+								<option value="" disabled selected hidden>Pilih Product(2)</option>
 								<!-- Add more options as needed --></select>
 						</div>
 						<div class="col-md-4 mb-3 hide-2-product">
@@ -160,7 +175,7 @@
               <!-- PRODUCT 3 -->
 							<label for="product3" class="form-label">Product (3)<span class="wajib_diisi">*</span></label>
 							<select class="form-control form-label red-border" id="product3" name="product3" style="height: 50px;">
-								<option value="" disabled selected hidden></option>
+								<option value="" disabled selected hidden>Pilih Product(3)</option>
 								<!-- Add more options as needed --></select>
 						</div>
 						<div class="col-md-4 mb-3 hide-3-product">
@@ -176,7 +191,7 @@
 
 							<label for="gift" class="form-label">Gift</label>
 							<select class="form-control form-label red-border" id="gift" name="gift" style="height: 50px;">
-								<option value="" disabled selected hidden></option>
+								<option value="" disabled selected hidden>Pilih Gift</option>
 								<option value=""></option>
 							</select>
 						</div>
@@ -216,7 +231,7 @@
 						  <div class="col-md-6 mb-3">
 							<label for="nama_bank" class="form-label">Bank<span class="wajib_diisi">*</span></label>
 							<select class="form-control form-label" id="nama_bank" name="nama_bank" style="height: 50px;" required>
-								<option value="" disabled selected hidden></option>
+								<option value="" disabled selected hidden>Pilih Bank</option>
 								<option value="MANDIRI">MANDIRI</option>
 								<option value="BRI">BRI</option>
 								<option value="BCA">BCA</option>
@@ -226,7 +241,7 @@
 						<div class="col-md-6 mb-3">
 							<label for="ekspedisi" class="form-label">Ekspedisi<span class="wajib_diisi">*</span></label>
 							<select class="form-control form-label" id="ekspedisi" name="ekspedisi" style="height: 50px;" required>
-								<option value="" disabled selected hidden></option>
+								<option value="" disabled selected hidden>Pilih Ekspedisi</option>
 								<option value="NINJA">NINJA</option>
 								<option value="JNT">JNT</option>
 								<!-- Add more options as needed --></select>
@@ -234,14 +249,14 @@
 						<div class="col-md-6 mb-3">
 							<label for="gudang" class="form-label">Gudang<span class="wajib_diisi">*</span></label>
 							<select class="form-control form-label" id="gudang" name="gudang" style="height: 50px;" required>
-								<option value="" disabled selected hidden></option>
-								<option value="CENDANA">CENDANA</option>
+								<option value="" disabled selected hidden>Pilih Gudang</option>
+								<option value="PERMATA">PERMATA</option>
 								<!-- Add more options as needed --></select>
 						</div>
 						<div class="col-md-6 mb-3 mb-3">
 							<label for="nama_cs" class="form-label">Nama CS CRM<span class="wajib_diisi">*</span></label>
 							<select class="form-control form-label" id="nama_cs" name="nama_cs" style="height: 50px;" required>
-								<option value="" disabled selected hidden></option>
+								<option value="" disabled selected hidden>Pilih CS CRM</option>
 								<!-- Add more options as needed --></select>
 						</div>
 						<div class="col-md-6 mb-3 mb-3">
@@ -254,7 +269,7 @@
 						<div class="col-md-6 mb-3">
 							<label for="status_customer" class="form-label">Status Customer<span class="wajib_diisi">*</span></label>
 							<select class="form-control form-label" id="status_customer" name="status_customer" style="height: 50px;" required>
-								<option value="" disabled selected hidden></option>
+								<option value="" disabled selected hidden>Pilih Status Customer</option>
 								<option value="NEW CUSTOMER">NEW CUSTOMER</option>
 								<option value="NCS">NCS</option>
 								<option value="RO1">RO1</option>
@@ -271,7 +286,7 @@
 						<div class="col-md-6 mb-3">
 							<label for="sumber_iklan" class="form-label">Sumber Iklan<span class="wajib_diisi">*</span></label>
 							<select class="form-control form-label" id="sumber_iklan" name="sumber_iklan" style="height: 50px;" required>
-								<option value="" disabled selected hidden></option>
+								<option value="" disabled selected hidden>Pilih Sumber Iklan</option>
 								<option value="CRM">CRM</option>
 								<option value="MARKETPLACE">MARKETPLACE</option>
 								<option value="TIKOK ADS">TIKOK ADS</option>

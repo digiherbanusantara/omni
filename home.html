@@ -29,7 +29,129 @@
 
   <link rel="manifest" href="/omni/manifest.json">
 
+  <style>
+    /* Style khusus untuk dropdown CRM */
+    .navbar-nav .dropdown-crm {
+      position: relative;
+    }
 
+    .navbar-nav .dropdown-crm .dropdown-toggle-crm {
+      color: #ffffff;
+      padding: 5px 20px;
+      text-align: center;
+      text-transform: uppercase;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .navbar-nav .dropdown-crm .dropdown-toggle-crm:hover,
+    .navbar-nav .dropdown-crm .dropdown-toggle-crm:focus {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .navbar-nav .dropdown-crm .dropdown-menu-crm {
+      background-color: #ffffff;
+      border-radius: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      margin-top: 10px;
+      padding: 0;
+      min-width: 200px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-nav .dropdown-crm .dropdown-item-crm {
+      color: #000000;
+      padding: 10px 20px;
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      transition: background-color 0.3s ease;
+      display: block;
+    }
+
+    .navbar-nav .dropdown-crm .dropdown-item-crm:hover {
+      background-color: #f8842b;
+      color: #ffffff;
+    }
+
+    .navbar-nav .dropdown-crm .dropdown-menu-crm::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #ffffff;
+    }
+
+    /* Style khusus untuk dropdown AKUISISI */
+    .navbar-nav .dropdown-akuisisi {
+      position: relative;
+    }
+
+    .navbar-nav .dropdown-akuisisi .dropdown-toggle-akuisisi {
+      color: #ffffff;
+      padding: 5px 20px;
+      text-align: center;
+      text-transform: uppercase;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .navbar-nav .dropdown-akuisisi .dropdown-menu-akuisisi {
+      background-color: #ffffff;
+      border-radius: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      margin-top: 10px;
+      padding: 0;
+      min-width: 200px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-nav .dropdown-akuisisi .dropdown-item-akuisisi {
+      color: #000000;
+      padding: 10px 20px;
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      transition: background-color 0.3s ease;
+      display: block;
+    }
+
+    .navbar-nav .dropdown-akuisisi .dropdown-item-akuisisi:hover {
+      background-color: #f8842b;
+      color: #ffffff;
+    }
+
+    .navbar-nav .dropdown-akuisisi .dropdown-menu-akuisisi::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #ffffff;
+    }
+  </style>
 </head>
 
 <body>
@@ -56,12 +178,26 @@
                 <a class="nav-link" href="index.html" style="margin-right: 10px;">Home <span class="sr-only">(current)</span></a>
               </li>
               
-              <li class="nav-item">
-                <a class="nav-link" href="codcrm.html" style="margin-right: 10px;">Form COD CRM</a>
+              <!-- CRM Dropdown -->
+              <li class="nav-item dropdown-crm">
+                <a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
+                  CRM
+                </a>
+                <div class="dropdown-menu dropdown-menu-crm" aria-labelledby="navbarDropdownCRM">
+                  <a class="dropdown-item-crm" href="codcrm.html">Form COD CRM</a>
+                  <a class="dropdown-item-crm" href="tfcrm.html">Form TF CRM</a>
+                </div>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link" href="tfcrm.html" style="margin-right: 10px;">Form TF CRM</a>
+              <!-- AKUISISI Dropdown -->
+              <li class="nav-item dropdown-akuisisi">
+                <a class="nav-link dropdown-toggle-akuisisi" href="#" id="navbarDropdownAKUISISI" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
+                  AKUISISI
+                </a>
+                <div class="dropdown-menu dropdown-menu-akuisisi" aria-labelledby="navbarDropdownAKUISISI">
+                  <a class="dropdown-item-akuisisi" href="#">Form COD AKUISISI</a>
+                  <a class="dropdown-item-akuisisi" href="#">Form TF AKUISISI</a>
+                </div>
               </li>
 
               <li class="nav-item">
