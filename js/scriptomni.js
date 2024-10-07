@@ -158,31 +158,49 @@ $('#successModal').on('hidden.bs.modal', function () {
     });
   }
 
+  //tambahkan disini jika ingin menambahkan data dropdown yang di ambil dari spreadsheet
   // Populate dropdowns (asynchronous request)
-  fetch('https://script.google.com/macros/s/AKfycbyJG7YXK8apJVAXy8vk4HIfQcB75FfWmLXFOI6zCGjM5xEVwHOhx3BYe6DF8sN60HV6/exec')
-    .then(response => response.json())
-    .then(data => {
-      populateDropdown('product', data.product);
-      populateDropdown('product2', data.product2);
-      populateDropdown('product3', data.product3);
-      populateDropdown('gift', data.gift);
-      populateDropdown('nama_cs', data.nama_cs);
-      populateDropdown('nama_adv', data.nama_adv);
-    })
-    .catch(error => console.error('Error:', error));
-
-  // Fungsi untuk populate dropdown
-  function populateDropdown(elementId, items) {
-    const selectElement = document.getElementById(elementId);
-    items.forEach(function(item) {
-      if (item.trim() !== '') {
-        const option = document.createElement('option');
-        option.value = item;
-        option.textContent = item;
-        selectElement.appendChild(option);
-      }
-    });
+fetch('https://script.google.com/macros/s/AKfycbxoA-pxpFFUpiH9q1Xu5SqEcDWNmULBozKMr-pelQyh1c8hAqp-50GTsSHdB0jELDhW/exec')
+.then(response => response.json())
+.then(data => {
+  if (document.getElementById('product')) {
+    populateDropdown('product', data.product);
   }
+  if (document.getElementById('product2')) {
+    populateDropdown('product2', data.product2);
+  }
+  if (document.getElementById('product3')) {
+    populateDropdown('product3', data.product3);
+  }
+  if (document.getElementById('gift')) {
+    populateDropdown('gift', data.gift);
+  }
+  if (document.getElementById('nama_cs')) {
+    populateDropdown('nama_cs', data.nama_cs);
+  }
+  if (document.getElementById('nama_adv')) {
+    populateDropdown('nama_adv', data.nama_adv);
+  }
+  if (document.getElementById('nama_cs_akuisisi')) {
+    populateDropdown('nama_cs_akuisisi', data.nama_cs_akuisisi);
+  }
+})
+.catch(error => console.error('Error:', error));
+
+// Fungsi untuk populate dropdown
+function populateDropdown(elementId, items) {
+const selectElement = document.getElementById(elementId);
+if (!selectElement) return;  // Tidak lanjutkan jika elemen tidak ditemukan
+
+items.forEach(function(item) {
+  if (item.trim() !== '') {
+    const option = document.createElement('option');
+    option.value = item;
+    option.textContent = item;
+    selectElement.appendChild(option);
+  }
+});
+}
 });
 
 // Fungsi untuk memformat nomor telepon
@@ -305,7 +323,7 @@ function showWarning(input) {
     //DEPENDENT DROPDOWN UTK PROVINCE KAB KECAMATAN
     document.addEventListener('DOMContentLoaded', function () {
       // Fetch data from Google Apps Script
-      fetch('https://script.google.com/macros/s/AKfycbyJG7YXK8apJVAXy8vk4HIfQcB75FfWmLXFOI6zCGjM5xEVwHOhx3BYe6DF8sN60HV6/exec')
+      fetch('https://script.google.com/macros/s/AKfycbxoA-pxpFFUpiH9q1Xu5SqEcDWNmULBozKMr-pelQyh1c8hAqp-50GTsSHdB0jELDhW/exec')
         .then(response => response.json())
         .then(data => {
           // Sort data provinsi sebelum mengisi dropdown
