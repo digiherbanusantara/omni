@@ -92,7 +92,7 @@ a:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #19607a;
+          background: linear-gradient(to right, #5493aa, #19607a); /* Background with gradient */
   border-radius: 0 0 350px 0;
 }
 
@@ -719,12 +719,12 @@ a:focus {
   font-family: "Poppins", sans-serif;
   display: inline-block;
   padding: 10px 65px;
-  background-color: #19607a;
+  background-color: #f8842b;
   color: #ffffff;
   border-radius: 3px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  border: 1px solid #19607a;
+  border: 1px solid #eee8e3;
   color: #fff;
   margin-top: 10px;
 }
