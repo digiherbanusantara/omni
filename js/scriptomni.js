@@ -227,20 +227,48 @@ function formatPhoneNumber(input) {
   input.value = value;
 }
 
-// Fungsi untuk memformat angka menjadi Rupiah
+
+
+
+
 function formatRupiah(input) {
+  // Ambil nilai dari input
   let value = input.value;
+
+  // Hapus semua karakter selain angka dan koma
   value = value.replace(/[^,\d]/g, '');
 
-  const rupiah = new Intl.NumberFormat('id-ID', {
-    style: 'currency',
-    currency: 'IDR',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0
-  }).format(value.replace(/[^,\d]/g, ''));
+  // Pastikan value diubah menjadi angka sebelum diformat
+  const numberValue = parseFloat(value) || 0;
 
+  // Format angka ke dalam format Rupiah
+  const rupiah = new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+  }).format(numberValue);
+
+  // Set nilai yang diformat kembali ke input dengan spasi setelah 'Rp'
   input.value = rupiah.replace("Rp", "Rp ");
 }
+
+
+
+function showWarningBiayaAdmin(input) {
+if (!warned) {
+  if (confirm('Anda ingin mengedit Total Biaya Admin? Perubahan akan mengabaikan perhitungan otomatis.')) {
+    warned = true;
+    input.readOnly = false; // Membiarkan pengguna mengedit
+  } else {
+    input.blur(); // Menghilangkan fokus dari input jika pengguna membatalkan
+  }
+}
+}
+
+
+
+
 
 // Fungsi untuk memperbarui total
 //untuk formcod

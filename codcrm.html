@@ -204,7 +204,7 @@
 							<input type="text" class="form-control red-border" id="biaya_ongkir" name="biaya_ongkir" placeholder="Rp 0" oninput="formatRupiah(this); updateTotalCod()"></div>
 						<div class="col-md-3 mb-4">
 							<label for="biaya_penanganan" class="form-label">Biaya Admin</label>
-							<input type="text" class="form-control red-border" id="biaya_penanganan" name="biaya_penanganan" placeholder="Rp 0" oninput="formatRupiah(this); updateTotalCod()">
+							<input type="text" class="form-control red-border" id="biaya_penanganan" name="biaya_penanganan" placeholder="Rp 0" oninput="formatRupiah(this); updateTotalCod()" onfocus="showWarningBiayaAdmin(this)" readonly>
 							<small class="form-text text-muted">*Fee COD/Biaya Penanganan</small>
 						</div>
 							
@@ -325,13 +325,59 @@
 	<script src="js/scriptomni.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
   <script>
- 
+function updateBiayaPenanganan() {
+  // Mengambil nilai harga produk dan biaya ongkir
+  let hargaProduct1 = parseInt(document.getElementById('harga_product').value.replace(/[^0-9]/g, '')) || 0;
+  let hargaProduct2 = parseInt(document.getElementById('harga_product2').value.replace(/[^0-9]/g, '')) || 0;
+  let hargaProduct3 = parseInt(document.getElementById('harga_product3').value.replace(/[^0-9]/g, '')) || 0;
+  let biayaOngkir = parseInt(document.getElementById('biaya_ongkir').value.replace(/[^0-9]/g, '')) || 0;
+  
+  // Mengambil nilai diskon ongkir
+  let diskonOngkir = parseInt(document.getElementById('diskon_ongkir').value.replace(/[^0-9]/g, '')) || 0;
 
+  // Total nilai harga produk dan ongkir setelah diskon ongkir
+  let totalProdukOngkir = hargaProduct1 + hargaProduct2 + hargaProduct3 + biayaOngkir - diskonOngkir;
 
+  // Mengambil nilai ekspedisi
+  let ekspedisi = document.getElementById('ekspedisi').value;
 
+  let biayaPenanganan = 0;
 
+  // Cek apakah biaya ongkir dan diskon ongkir lebih dari 0 sebelum mengurangi nilainya
+  if (biayaOngkir > 0 && diskonOngkir > 0 && (biayaOngkir - diskonOngkir) === 0) {
+      biayaPenanganan = 0;
+  } else {
+      // Jika tidak, jalankan logika perhitungan biaya penanganan seperti biasa
+      if (ekspedisi === "NINJA") {
+          if (totalProdukOngkir >= 200000) {
+              biayaPenanganan = totalProdukOngkir * 0.03; // 3% dari total jika >= Rp 200.000
+          } else {
+              biayaPenanganan = 5000; // Biaya tetap Rp 5.000 jika kurang dari Rp 200.000
+          }
+      } else if (ekspedisi === "JNT") {
+          biayaPenanganan = totalProdukOngkir * 0.01; // 1% untuk ekspedisi JNT
+      }
+  }
 
+  // Pastikan biaya penanganan dibulatkan dengan pembulatan 2 angka di belakang koma
+  biayaPenanganan = Math.round(biayaPenanganan);
 
+  // Menggunakan formatRupiah untuk memformat biayaPenanganan
+  const biayaPenangananInput = document.getElementById('biaya_penanganan');
+  biayaPenangananInput.value = biayaPenanganan.toString(); // Set nilai angka murni terlebih dahulu
+  formatRupiah(biayaPenangananInput); // Panggil fungsi formatRupiah untuk memformat dengan simbol Rp
+
+  // Update total COD juga
+  updateTotalCod();
+}
+
+// Event listener untuk memicu perhitungan biaya penanganan
+document.getElementById('harga_product').addEventListener('input', updateBiayaPenanganan);
+document.getElementById('harga_product2').addEventListener('input', updateBiayaPenanganan);
+document.getElementById('harga_product3').addEventListener('input', updateBiayaPenanganan);
+document.getElementById('biaya_ongkir').addEventListener('input', updateBiayaPenanganan);
+document.getElementById('diskon_ongkir').addEventListener('input', updateBiayaPenanganan);
+document.getElementById('ekspedisi').addEventListener('change', updateBiayaPenanganan);
 
 
   </script>
