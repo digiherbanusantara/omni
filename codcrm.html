@@ -341,7 +341,7 @@ function updateBiayaPenanganan() {
   let diskonOngkir = parseInt(document.getElementById('diskon_ongkir').value.replace(/[^0-9]/g, '')) || 0;
 
   // Total nilai harga produk dan ongkir setelah diskon ongkir
-  let totalProdukOngkir = hargaProduct1 + hargaProduct2 + hargaProduct3 + biayaOngkir - diskonOngkir;
+  let totalProdukOngkir = hargaProduct1 + hargaProduct2 + hargaProduct3 + biayaOngkir;
 
   // Mengambil nilai ekspedisi
   let ekspedisi = document.getElementById('ekspedisi').value;
