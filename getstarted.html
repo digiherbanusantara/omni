@@ -31,70 +31,78 @@
 
   
   <style>
-
-.slider_section {
-      margin: 0;
-      /* font-family: Arial, sans-serif; */
-      background: linear-gradient(to right, #ffffff, #8ac1d5); /* Background with gradient */
-      
+    .image-container {
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+      border-radius: 15px;
     }
-
-.image-container {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  border-radius: 15px; /* Menambahkan border-radius */
-}
-
-.image-container img {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: transform 0.3s ease;
-  border-radius: inherit; /* Menambahkan border-radius yang sesuai */
-}
-
-.image-container::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0);
-  transition: background-color 0.3s ease;
-  border-radius: inherit; /* Pastikan pseudo-element juga punya border-radius */
-}
-
-.image-container:hover::after {
-  background-color: rgba(0, 0, 0, 0.5); /* Warna gelap dengan transparansi */
-}
-
-.btn-show {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #f8842b;
-  color: rgb(255, 255, 255);
-  padding: 10px 20px;
-  text-decoration: none;
-  font-size: 16px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 5px;
-  z-index: 1; /* Agar tombol tetap di atas background */
-}
-
-.image-container:hover .btn-show {
-  opacity: 2;
-}
-
-.image-container:hover img {
-  transform: scale(1.1); /* Gambar tetap zoom saat hover */
-}
-
+  
+    .image-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+      border-radius: inherit;
+    }
+  
+    .image-container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0);
+      transition: background-color 0.3s ease;
+      border-radius: inherit;
+    }
+  
+    .image-container:hover::after {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  
+    .btn-show, .btn-result {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #f8842b;
+      color: #fff;
+      width: 120px; /* Set the same width */
+      height: 40px; /* Set the same height */
+      line-height: 40px; /* Vertically align text */
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 5px;
+      z-index: 1;
+    }
+  
+    .btn-result {
+      background-color: #6c757d;
+    }
+  
+    .btn-show {
+      top: 40%; /* Position 'Form' button */
+    }
+  
+    .btn-result {
+      top: 50%; /* Position 'Result' button */
+    }
+  
+    .image-container:hover .btn-show,
+    .image-container:hover .btn-result {
+      opacity: 1;
+    }
+  
+    .image-container:hover img {
+      transform: scale(1.1);
+    }
   </style>
+  
+  
 </head>
 
 <body>
@@ -129,6 +137,9 @@
                 <div class="dropdown-menu dropdown-menu-crm" aria-labelledby="navbarDropdownCRM">
                   <a class="dropdown-item-crm" href="codcrm.html">Form COD CRM</a>
                   <a class="dropdown-item-crm" href="tfcrm.html">Form TF CRM</a>
+                  <hr style="border: 1px solid #ccc; margin: 1px 0;">
+					  <a class="dropdown-item-crm" href="result_codcrm.html">Result COD CRM</a>
+					  <a class="dropdown-item-crm" href="result_codcrm.html">Result TF CRM</a>
                 </div>
               </li>
 
@@ -165,37 +176,42 @@
     <div class="container">
       <div class="row">
         
-        <!-- Card 1 -->
-        <div class="col-md-3">
-            <div class="image-container">
-                <img src="images/codcrm.png" alt="Deskripsi Gambar">
-                <a href="codcrm.html" class="btn-show">Choose</a>
-              </div>
+              <!-- Card 1 -->
+      <div class="col-md-3">
+        <div class="image-container">
+          <img src="images/codcrm.png" alt="Deskripsi Gambar">
+          <a href="codcrm.html" class="btn-show">Form</a>
+          <a href="result_codcrm.html" class="btn-result">Result</a>
         </div>
-  
-        <!-- Card 2 -->
-        <div class="col-md-3">
-            <div class="image-container">
-                <img src="images/tfcrm.png" alt="Deskripsi Gambar">
-                <a href="codcrm.html" class="btn-show">Choose</a>
-              </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-3">
+        <div class="image-container">
+          <img src="images/tfcrm.png" alt="Deskripsi Gambar">
+          <a href="tfcrm.html" class="btn-show">Form</a>
+          <a href="review_tfcrm.html" class="btn-result">Result</a>
         </div>
-  
-        <!-- Card 3 -->
-        <div class="col-md-3">
-            <div class="image-container">
-                <img src="images/codak.png" alt="Deskripsi Gambar">
-                <a href="codakuisisi.html" class="btn-show">Choose</a>
-              </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-3">
+        <div class="image-container">
+          <img src="images/codak.png" alt="Deskripsi Gambar">
+          <a href="codakuisisi.html" class="btn-show">Form</a>
+          <a href="review_codakuisisi.html" class="btn-result">Result</a>
         </div>
-  
-        <!-- Card 4 -->
-        <div class="col-md-3">
-            <div class="image-container">
-                <img src="images/tfak.png" alt="Deskripsi Gambar">
-                <a href="tfakuisisi.html" class="btn-show">Choose</a>
-              </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-md-3">
+        <div class="image-container">
+          <img src="images/tfak.png" alt="Deskripsi Gambar">
+          <a href="tfakuisisi.html" class="btn-show">Form</a>
+          <a href="review_tfakuisisi.html" class="btn-result">Result</a>
         </div>
+      </div>
+
   
       </div>
     </div>
