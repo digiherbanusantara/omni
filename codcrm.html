@@ -63,6 +63,9 @@
 					<div class="dropdown-menu dropdown-menu-crm" aria-labelledby="navbarDropdownCRM">
 					  <a class="dropdown-item-crm" href="codcrm.html">Form COD CRM</a>
 					  <a class="dropdown-item-crm" href="tfcrm.html">Form TF CRM</a>
+					  <hr style="border: 1px solid #ccc; margin: 1px 0;">
+					  <a class="dropdown-item-crm" href="review_codcrm.html">Result COD CRM</a>
+					  <a class="dropdown-item-crm" href="review_codcrm.html">Result TF CRM</a>
 					</div>
 				  </li>
 	
@@ -113,7 +116,7 @@
 						</div>
 					</div>
 				</div>
-				<form method="POST" action="https://script.google.com/macros/s/AKfycbxoA-pxpFFUpiH9q1Xu5SqEcDWNmULBozKMr-pelQyh1c8hAqp-50GTsSHdB0jELDhW/exec">
+				<form method="POST" action="https://script.google.com/macros/s/AKfycbwQ0KTjPyWz1lbgms6eNowzZVhQ-sgVRrBm8Q5ol1OLnxwdpUqjivRMP6mWUWA_OE7e/exec">
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="nama_customer" class="form-label">Nama Customer<span class="wajib_diisi">*</span></label>
@@ -148,6 +151,15 @@
 						<div class="col-md-12 mb-3">
 							<hr style="border: 1px solid #ccc; margin: 20px 0;"></div>
 
+							<div class="col-md-12 mb-3">
+								<label for="ekspedisi" class="form-label">Ekspedisi<span class="wajib_diisi">*</span></label>
+								<select class="form-control form-label" id="ekspedisi" name="ekspedisi" style="height: 50px;" required>
+									<option value="" disabled selected hidden>Pilih Ekspedisi</option>
+									<option value="NINJA">NINJA</option>
+									<option value="JNT">JNT</option>
+									<!-- Add more options as needed --></select>
+							</div>
+
               <!-- PRODUCT 1 -->
 						<div class="col-md-4 mb-3">
 							<label for="product" class="form-label">Product<span class="wajib_diisi">*</span></label>
@@ -166,32 +178,32 @@
 
 
               <!-- PRODUCT 2 -->
-							<label for="product2" class="form-label">Product(2)<span class="wajib_diisi">*</span></label>
+							<label for="product2" class="form-label">Product²<span class="wajib_diisi">*</span></label>
 							<select class="form-control form-label red-border" id="product2" name="product2" style="height: 50px;">
-								<option value="" disabled selected hidden>Pilih Product(2)</option>
+								<option value="" disabled selected hidden>Pilih Product²</option>
 								<!-- Add more options as needed --></select>
 						</div>
 						<div class="col-md-4 mb-3 hide-2-product">
-							<label for="qty2" class="form-label">Quantity(2)<span class="wajib_diisi">*</span></label>
+							<label for="qty2" class="form-label">Quantity²<span class="wajib_diisi">*</span></label>
 							<input type="number" class="form-control red-border" id="qty2" name="qty2" placeholder="Qty" oninput="this.value = this.value.toUpperCase();"></div>
 						<div class="col-md-4 mb-3 hide-2-product">
-							<label for="harga_product2" class="form-label">Harga Product(2)<span class="wajib_diisi">*</span></label>
+							<label for="harga_product2" class="form-label">Harga Product²<span class="wajib_diisi">*</span></label>
 							<input type="text" class="form-control red-border" id="harga_product2" name="harga_product2" placeholder="Rp 0" oninput="formatRupiah(this); updateTotalCod()"></div>
 						<div class="col-md-4 mb-3 hide-3-product">
               <!-- END PRODUCT 2 -->
 
 
               <!-- PRODUCT 3 -->
-							<label for="product3" class="form-label">Product(3)<span class="wajib_diisi">*</span></label>
+							<label for="product3" class="form-label">Product³<span class="wajib_diisi">*</span></label>
 							<select class="form-control form-label red-border" id="product3" name="product3" style="height: 50px;">
-								<option value="" disabled selected hidden>Pilih Product(3)</option>
+								<option value="" disabled selected hidden>Pilih Product³</option>
 								<!-- Add more options as needed --></select>
 						</div>
 						<div class="col-md-4 mb-3 hide-3-product">
-							<label for="qty3" class="form-label">Quantity(3)<span class="wajib_diisi">*</span></label>
+							<label for="qty3" class="form-label">Quantity³<span class="wajib_diisi">*</span></label>
 							<input type="number" class="form-control red-border" id="qty3" name="qty3" placeholder="Qty" oninput="this.value = this.value.toUpperCase();"></div>
 						<div class="col-md-4 mb-3 hide-3-product">
-							<label for="harga_product3" class="form-label">Harga Product(3)<span class="wajib_diisi">*</span></label>
+							<label for="harga_product3" class="form-label">Harga Product³<span class="wajib_diisi">*</span></label>
 							<input type="text" class="form-control red-border" id="harga_product3" name="harga_product3" placeholder="Rp 0" oninput="formatRupiah(this); updateTotalCod()"></div>
 						<div class="col-md-3 mb-3">
               <!-- END PRODUCT 3 -->
@@ -223,21 +235,14 @@
 						</div>
 						<div class="col-md-12 mb-3">
 							<hr style="border: 1px solid #ccc; margin: 20px 0;"></div>
-						<div class="col-md-6 mb-3">
+						<div class="col-md-6 mb-3" style="display: none;">
 							<label for="metode_pembayaran" class="form-label">Metode Pembayaran<span class="wajib_diisi">*</span></label>
-							<input class="form-control form-label" id="metode_pembayaran" name="metode_pembayaran" value="COD" style="height: 50px;" required readonly>
+							<input class="form-control form-label" id="metode_pembayaran" name="metode_pembayaran" value="COD" style="height: 50px;" required readonly type="hidden">
 								<!-- <option value="" disabled selected hidden></option> -->
 								<!-- <option value="COD">COD</option> -->
 								<!-- Add more options as needed --></input>
 						</div>
-						<div class="col-md-6 mb-3">
-							<label for="ekspedisi" class="form-label">Ekspedisi<span class="wajib_diisi">*</span></label>
-							<select class="form-control form-label" id="ekspedisi" name="ekspedisi" style="height: 50px;" required>
-								<option value="" disabled selected hidden>Pilih Ekspedisi</option>
-								<option value="NINJA">NINJA</option>
-								<option value="JNT">JNT</option>
-								<!-- Add more options as needed --></select>
-						</div>
+						
 						<div class="col-md-6 mb-3">
 							<label for="gudang" class="form-label">Gudang<span class="wajib_diisi">*</span></label>
 							<select class="form-control form-label" id="gudang" name="gudang" style="height: 50px;" required>
@@ -252,9 +257,9 @@
 								<option value="" disabled selected hidden>Pilih CS CRM</option>
 								<!-- Add more options as needed --></select>
 						</div>
-						<div class="col-md-6 mb-3 mb-3">
+						<div class="col-md-6 mb-3 mb-3" style="display: none;">
 							<label for="nama_adv" class="form-label">Nama ADV<span class="wajib_diisi">*</span></label>
-							<input class="form-control form-label" value="CRM" id="nama_adv" name="nama_adv" style="height: 50px;" required readonly>
+							<input class="form-control form-label" value="CRM" id="nama_adv" name="nama_adv" style="height: 50px;" required readonly type="hidden">
 								<!-- <option value="" disabled selected hidden></option> -->
 								<!-- <option value="CRM">CRM</option> -->
 								<!-- Add more options as needed --></input>
@@ -282,7 +287,7 @@
 								<option value="TITKOK ADS">TIKTOK ADS</option>
 								<!-- Add more options as needed --></select>
 						</div>
-						<div class="col-md-6 mb-3">
+						<div class="col-md-12 mb-3">
 							<label for="note" class="form-label">Note Untuk Courir</label>
 							<input type="textarea" class="form-control" id="note" name="note" placeholder="Note" oninput="this.value = this.value.toUpperCase();"></div>
 					</div>
@@ -355,7 +360,7 @@ function updateBiayaPenanganan() {
       // Jika tidak, jalankan logika perhitungan biaya penanganan seperti biasa
       if (ekspedisi === "NINJA") {
           if (totalProdukOngkir >= 200000) {
-              biayaPenanganan = totalProdukOngkir * 0.03; // 3% dari total jika >= Rp 200.000
+              biayaPenanganan = totalProdukOngkir * 0.0025; // 3% dari total jika >= Rp 200.000
           } else {
               biayaPenanganan = 5000; // Biaya tetap Rp 5.000 jika kurang dari Rp 200.000
           }

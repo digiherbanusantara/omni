@@ -160,7 +160,7 @@ $('#successModal').on('hidden.bs.modal', function () {
 
   //tambahkan disini jika ingin menambahkan data dropdown yang di ambil dari spreadsheet
   // Populate dropdowns (asynchronous request)
-fetch('https://script.google.com/macros/s/AKfycbxoA-pxpFFUpiH9q1Xu5SqEcDWNmULBozKMr-pelQyh1c8hAqp-50GTsSHdB0jELDhW/exec')
+fetch('https://script.google.com/macros/s/AKfycbwQ0KTjPyWz1lbgms6eNowzZVhQ-sgVRrBm8Q5ol1OLnxwdpUqjivRMP6mWUWA_OE7e/exec')
 .then(response => response.json())
 .then(data => {
   if (document.getElementById('product')) {
@@ -351,7 +351,7 @@ function showWarning(input) {
     //DEPENDENT DROPDOWN UTK PROVINCE KAB KECAMATAN
     document.addEventListener('DOMContentLoaded', function () {
       // Fetch data from Google Apps Script
-      fetch('https://script.google.com/macros/s/AKfycbxoA-pxpFFUpiH9q1Xu5SqEcDWNmULBozKMr-pelQyh1c8hAqp-50GTsSHdB0jELDhW/exec')
+      fetch('https://script.google.com/macros/s/AKfycbwQ0KTjPyWz1lbgms6eNowzZVhQ-sgVRrBm8Q5ol1OLnxwdpUqjivRMP6mWUWA_OE7e/exec')
         .then(response => response.json())
         .then(data => {
           // Sort data provinsi sebelum mengisi dropdown

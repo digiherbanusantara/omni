@@ -113,7 +113,7 @@
 						</div>
 					</div>
 				</div>
-				<form method="POST" action="https://script.google.com/macros/s/AKfycbxoA-pxpFFUpiH9q1Xu5SqEcDWNmULBozKMr-pelQyh1c8hAqp-50GTsSHdB0jELDhW/exec">
+				<form method="POST" action="https://script.google.com/macros/s/AKfycbwQ0KTjPyWz1lbgms6eNowzZVhQ-sgVRrBm8Q5ol1OLnxwdpUqjivRMP6mWUWA_OE7e/exec">
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="nama_customer" class="form-label">Nama Customer<span class="wajib_diisi">*</span></label>
@@ -147,6 +147,15 @@
 						
 						<div class="col-md-12 mb-3">
 							<hr style="border: 1px solid #ccc; margin: 20px 0;"></div>
+
+							<div class="col-md-12 mb-3">
+								<label for="ekspedisi" class="form-label">Ekspedisi<span class="wajib_diisi">*</span></label>
+								<select class="form-control form-label" id="ekspedisi" name="ekspedisi" style="height: 50px;" required>
+									<option value="" disabled selected hidden>Pilih Ekspedisi</option>
+									<option value="NINJA">NINJA</option>
+									<option value="JNT">JNT</option>
+									<!-- Add more options as needed --></select>
+							</div>
 
               <!-- PRODUCT 1 -->
 						<div class="col-md-4 mb-3">
@@ -223,21 +232,14 @@
 						</div>
 						<div class="col-md-12 mb-3">
 							<hr style="border: 1px solid #ccc; margin: 20px 0;"></div>
-						<div class="col-md-6 mb-3">
+						<div class="col-md-6 mb-3" style="display: none;">
 							<label for="metode_pembayaran" class="form-label">Metode Pembayaran<span class="wajib_diisi">*</span></label>
-							<input class="form-control form-label" id="metode_pembayaran" name="metode_pembayaran" value="COD" style="height: 50px;" required readonly>
+							<input class="form-control form-label" id="metode_pembayaran" name="metode_pembayaran" value="COD" style="height: 50px;" required readonly type="hidden">
 								<!-- <option value="" disabled selected hidden></option> -->
 								<!-- <option value="COD">COD</option> -->
 								<!-- Add more options as needed --></input>
 						</div>
-						<div class="col-md-6 mb-3">
-							<label for="ekspedisi" class="form-label">Ekspedisi<span class="wajib_diisi">*</span></label>
-							<select class="form-control form-label" id="ekspedisi" name="ekspedisi" style="height: 50px;" required>
-								<option value="" disabled selected hidden>Pilih Ekspedisi</option>
-								<option value="NINJA">NINJA</option>
-								<option value="JNT">JNT</option>
-								<!-- Add more options as needed --></select>
-						</div>
+						
 						<div class="col-md-6 mb-3">
 							<label for="gudang" class="form-label">Gudang<span class="wajib_diisi">*</span></label>
 							<select class="form-control form-label" id="gudang" name="gudang" style="height: 50px;" required>
@@ -345,7 +347,7 @@
 
   if (ekspedisi === "NINJA") {
       if (totalProdukOngkir >= 200000) {
-          biayaPenanganan = totalProdukOngkir * 0.03; // 3% dari total jika >= Rp 200.000
+          biayaPenanganan = totalProdukOngkir * 0.0025; // 3% dari total jika >= Rp 200.000
       } else {
           biayaPenanganan = 5000; // Biaya tetap Rp 5.000 jika kurang dari Rp 200.000
       }
