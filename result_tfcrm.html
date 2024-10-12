@@ -167,7 +167,7 @@
       <div class="row">
         <!-- disini datatable nya -->
         <div class="col-12">
-          <h1 style="text-align: center; margin-bottom: 20px; color: black;"><b>RESULTS | <span style="color: #f8842b;">COD CRM</span></b></h1>
+          <h1 style="text-align: center; margin-bottom: 20px; color: black;"><b>RESULTS | <span style="color: #f8842b;">TF CRM</span></b></h1>
           <small class="form-text text-muted" style="text-align: center; margin-bottom: 20px;">Last 24 Hours</small>
           <hr style="border: 1px solid #ccc; margin: 20px 0;">
           <!-- Wrapper untuk DataTable -->
@@ -196,8 +196,10 @@
                   <th>Biaya Ongkir</th>
                   <th>Biaya Admin</th>
                   <th>Diskon Ongkir</th>
-                  <th>Total COD</th>
+                  <th>Total TF</th>
                   <th>Metode Pembayaran</th>
+                  <th>Bukti Transfer</th>
+                  <th>Nama Bank</th>
                   <th>Ekspedisi</th>
                   <th>Gudang</th>
                   <th>Nama CS</th>
@@ -328,7 +330,7 @@
   <script>
     $(document).ready(function () {
       // Ambil data dari Google Apps Script
-      $.getJSON('https://script.google.com/macros/s/AKfycbwQ0KTjPyWz1lbgms6eNowzZVhQ-sgVRrBm8Q5ol1OLnxwdpUqjivRMP6mWUWA_OE7e/exec?getLast24Hours=true', function (data) {
+      $.getJSON('https://script.google.com/macros/s/AKfycbybThXhAxH2Ipi9geW9ByobtXBmT6Qt2nipSJtNKNH4KRo9w_riczSfiuMm5jloFRbe/exec?getLast24Hours_tfcrm=true', function (data) {
         // Jika ada data, masukkan ke dalam DataTable
         if (data && data.length > 0) {
           // Format data tanggal sebelum memasukkannya ke DataTable
@@ -367,10 +369,20 @@
               { data: 'harga_product3' },
               { data: 'gift' },
               { data: 'biaya_ongkir' },
-              { data: 'biaya_penanganan' },
+              { data: 'biaya_penanganan_tf' },
               { data: 'diskon_ongkir' },
-              { data: 'total_cod' },
+              { data: 'total_tf' },
               { data: 'metode_pembayaran' },
+              {
+    data: 'bukti_transfer',
+    render: function (data, type, row) {
+      if (type === 'display' && data) {
+        return '<a href="' + data + '" target="_blank">Bukti Transfer</a>';
+      }
+      return data;
+    }
+  },
+              { data: 'nama_bank' },
               { data: 'ekspedisi' },
               { data: 'gudang' },
               { data: 'nama_cs' },
